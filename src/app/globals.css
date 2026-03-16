@@ -5,6 +5,106 @@
    ═══════════════════════════════════════════════════════════ */
 
 /* ─────────────────────────────────────────────────────────────
+   FONT FACES — Blair ITC (Display)
+   ───────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Blair ITC";
+  src: url("/fonts/blair/BlairITC-Light.woff2") format("woff2"),
+       url("/fonts/blair/BlairITC-Light.woff") format("woff"),
+       url("/fonts/blair/BlairITC-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Blair ITC";
+  src: url("/fonts/blair/BlairITC-Medium.woff2") format("woff2"),
+       url("/fonts/blair/BlairITC-Medium.woff") format("woff"),
+       url("/fonts/blair/BlairITC-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Blair ITC";
+  src: url("/fonts/blair/BlairITC-Bold.woff2") format("woff2"),
+       url("/fonts/blair/BlairITC-Bold.woff") format("woff"),
+       url("/fonts/blair/BlairITC-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FONT FACES — Halenoir (Body)
+   ───────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Halenoir";
+  src: url("/fonts/halenoir/Halenoir-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halenoir";
+  src: url("/fonts/halenoir/Halenoir-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halenoir";
+  src: url("/fonts/halenoir/Halenoir-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halenoir";
+  src: url("/fonts/halenoir/Halenoir-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halenoir";
+  src: url("/fonts/halenoir/Halenoir-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halenoir";
+  src: url("/fonts/halenoir/Halenoir-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halenoir";
+  src: url("/fonts/halenoir/Halenoir-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halenoir";
+  src: url("/fonts/halenoir/Halenoir-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────────────────────────
    1. COLOR TOKENS
    ───────────────────────────────────────────────────────────── */
 :root {
