@@ -38,7 +38,7 @@ export default function Decouvrir() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="font-display text-[28px] lg:text-[36px] text-[#181818] mb-16"
+          className="section-title text-[#181818] mb-16"
         >
           <DecryptText text="Découvrir" delay={100} />
         </motion.h2>
@@ -67,12 +67,7 @@ export default function Decouvrir() {
               </p>
             </div>
 
-            {/* Link */}
-            <div className="lg:col-span-3 lg:text-right">
-              <span className="inline-block text-[13px] text-[#181818] underline underline-offset-4 cursor-pointer hover:text-[#888] transition-colors">
-                <DecryptText text="En savoir plus" delay={300 + index * 100} speed={30} />
-              </span>
-            </div>
+            <div className="lg:col-span-3" />
           </motion.div>
           ))}
         </div>

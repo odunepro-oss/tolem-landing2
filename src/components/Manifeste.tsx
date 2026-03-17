@@ -20,7 +20,7 @@ export default function Manifeste() {
 
   // Image grows to full screen (no clip-path, just scale)
   const imageWidth = useTransform(scrollYProgress, [0, 0.25], ["40%", "100%"]);
-  const imageHeight = useTransform(scrollYProgress, [0, 0.25], ["55%", "100%"]);
+  const imageHeight = useTransform(scrollYProgress, [0, 0.25], ["30%", "100%"]);
 
   // Parallax effects
   const textParallaxY = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
@@ -134,8 +134,7 @@ export default function Manifeste() {
           className="absolute left-8 lg:left-16 top-[8%] lg:top-[10%] z-20 pointer-events-none"
         >
           <h2
-            className="font-display font-light text-[#181818] leading-[0.92] tracking-[-0.02em]"
-            style={{ fontSize: "clamp(32px, 7vw, 90px)" }}
+            className="section-title max-w-[calc(100vw-4rem)] text-[#181818] text-balance"
           >
             <DecryptText text="L'art de" delay={100} speed={30} />
             <br />

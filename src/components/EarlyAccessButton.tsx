@@ -1,21 +1,46 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DecryptText from "./DecryptText";
 
 export default function EarlyAccessButton() {
   const [open, setOpen] = useState(false);
+  const [isHeroOffset, setIsHeroOffset] = useState(true);
+
+  useEffect(() => {
+    const updateButtonPosition = () => {
+      const heroThreshold = window.innerHeight * 0.35;
+      setIsHeroOffset(window.scrollY <= heroThreshold);
+    };
+
+    updateButtonPosition();
+    window.addEventListener("scroll", updateButtonPosition, { passive: true });
+    window.addEventListener("resize", updateButtonPosition);
+
+    return () => {
+      window.removeEventListener("scroll", updateButtonPosition);
+      window.removeEventListener("resize", updateButtonPosition);
+    };
+  }, []);
 
   return (
     <>
       {/* Bouton fixe en bas de l'écran */}
       <motion.button
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          bottom: isHeroOffset ? 84 : 24,
+        }}
+        transition={{
+          opacity: { duration: 0.8, delay: 1.5 },
+          y: { duration: 0.8, delay: 1.5 },
+          bottom: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+        }}
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#181818] text-white px-8 py-4 text-[11px] tracking-[0.15em] uppercase hover:bg-[#333] transition-colors whitespace-nowrap"
+        className="fixed left-1/2 -translate-x-1/2 z-50 bg-[#181818] text-white px-8 py-4 text-[11px] tracking-[0.15em] uppercase hover:bg-[#333] transition-colors whitespace-nowrap"
       >
         Accès en avant-première
       </motion.button>

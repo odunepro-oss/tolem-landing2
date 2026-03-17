@@ -35,7 +35,7 @@ export default function FAQ() {
 
         {/* Left */}
         <div>
-          <p className="text-[11px] tracking-[0.2em] text-[#181818]/40 uppercase mb-6">FAQ</p>
+          <h2 className="section-title text-[#181818] mb-6">FAQ</h2>
           <p className="text-[15px] text-[#181818] leading-[1.6] mb-10">
             Les questions les plus fréquentes sur TOLEM, nos montres et notre campagne Kickstarter.
           </p>

@@ -44,7 +44,7 @@ export default function Ressources() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="font-display text-[28px] lg:text-[36px] text-[#181818] mb-12 px-6 lg:px-10"
+          className="section-title text-[#181818] mb-12 px-6 lg:px-10"
         >
           <DecryptText text="Ressources" delay={100} />
         </motion.h2>

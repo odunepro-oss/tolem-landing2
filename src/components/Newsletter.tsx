@@ -32,7 +32,7 @@ export default function Newsletter() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display text-[32px] lg:text-[48px] text-[#181818] leading-[1.1] mb-8"
+              className="section-title text-[#181818] mb-8"
             >
               <DecryptText text="Soyez les premiers" delay={200} speed={25} />
               <br />
@@ -93,8 +93,16 @@ export default function Newsletter() {
                 <div className="text-[11px] tracking-[0.12em] text-[#999] uppercase mb-3">
                   <DecryptText text="Objectif" delay={500} speed={30} />
                 </div>
-                <div className="font-display text-[32px] lg:text-[42px] text-[#181818]">
-                  <DecryptText text="500" delay={600} speed={40} />
+                <div className="font-display text-[32px] lg:text-[42px] text-[#181818] flex items-center gap-1.5">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 12 12"
+                    className="h-[14px] w-[14px] lg:h-[18px] lg:w-[18px] shrink-0"
+                  >
+                    <line x1="6" y1="1.5" x2="6" y2="10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
+                    <line x1="1.5" y1="6" x2="10.5" y2="6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
+                  </svg>
+                  <DecryptText text="300" delay={600} speed={40} />
                 </div>
                 <div className="text-[12px] text-[#666] mt-1">
                   <DecryptText text="pièces" delay={650} speed={30} />
@@ -103,10 +111,10 @@ export default function Newsletter() {
 
               <div className="border-l border-[#C8C8C8] pl-6">
                 <div className="text-[11px] tracking-[0.12em] text-[#999] uppercase mb-3">
-                  <DecryptText text="Early Bird" delay={550} speed={30} />
+                  <DecryptText text="Remise" delay={550} speed={30} />
                 </div>
                 <div className="font-display text-[32px] lg:text-[42px] text-[#181818]">
-                  <DecryptText text="-30%" delay={650} speed={40} />
+                  <DecryptText text="-33%" delay={650} speed={40} />
                 </div>
                 <div className="text-[12px] text-[#666] mt-1">
                   <DecryptText text="pour les 100 premiers" delay={700} speed={2} />
@@ -118,7 +126,7 @@ export default function Newsletter() {
                   <DecryptText text="Livraison" delay={600} speed={30} />
                 </div>
                 <div className="font-display text-[32px] lg:text-[42px] text-[#181818]">
-                  <DecryptText text="Q4" delay={700} speed={40} />
+                  <DecryptText text="3M" delay={700} speed={40} />
                 </div>
                 <div className="text-[12px] text-[#666] mt-1">
                   <DecryptText text="2026" delay={750} speed={30} />

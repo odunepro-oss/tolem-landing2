@@ -146,6 +146,13 @@ body {
   background: var(--gray-100);
 }
 
+h1,
+h2,
+h3,
+p {
+  text-wrap: balance;
+}
+
 /* ─────────────────────────────────────────────────────────────
    4. SELECTION
    ───────────────────────────────────────────────────────────── */
@@ -186,6 +193,14 @@ body {
 
 .font-mono {
   font-family: var(--font-mono);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(32px, 4.8vw, 52px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
 }
 
 /* ─────────────────────────────────────────────────────────────

@@ -28,60 +28,46 @@ export default function Hero() {
         </motion.p>
       </motion.div>
 
-      {/* Micro Infos - Mono */}
-      <div className="absolute top-20 lg:top-24 left-4 lg:left-16 z-20 font-mono text-[8px] lg:text-[10px] text-[#181818]/40 tracking-wider">
+      {/* Micro Infos - Desktop only */}
+      <div className="hidden lg:block absolute top-24 left-16 z-20 font-mono text-[10px] text-[#181818]/40 tracking-wider">
         <span>41MM</span>
-        <span className="mx-1 lg:mx-2">—</span>
+        <span className="mx-2">—</span>
         <span>11,6MM</span>
       </div>
 
-      <div className="absolute top-20 lg:top-24 right-4 lg:right-16 z-20 font-mono text-[8px] lg:text-[10px] text-[#181818]/40 tracking-wider text-right">
+      <div className="hidden lg:block absolute top-24 right-16 z-20 font-mono text-[10px] text-[#181818]/40 tracking-wider text-right">
         <span>TITANIUM GR.5</span>
       </div>
 
-      <div className="absolute top-1/2 left-4 lg:left-16 z-20 font-mono text-[8px] lg:text-[10px] text-[#181818]/40 tracking-wider -translate-y-1/2 hidden lg:block">
+      <div className="absolute top-1/2 left-16 z-20 font-mono text-[10px] text-[#181818]/40 tracking-wider -translate-y-1/2 hidden lg:block">
         <div>ASSEMBLÉ À</div>
         <div className="mt-1">Besançon</div>
       </div>
 
-      <div className="absolute top-1/2 right-4 lg:right-16 z-20 font-mono text-[8px] lg:text-[10px] text-[#181818]/40 tracking-wider text-right -translate-y-1/2 hidden lg:block">
+      <div className="absolute top-1/2 right-16 z-20 font-mono text-[10px] text-[#181818]/40 tracking-wider text-right -translate-y-1/2 hidden lg:block">
         <div>RÉSERVE DE MARCHE</div>
         <div className="mt-1">42H</div>
       </div>
 
-      <div className="absolute bottom-20 lg:bottom-24 left-4 lg:left-16 z-20 font-mono text-[8px] lg:text-[10px] text-[#181818]/40 tracking-wider">
+      <div className="hidden lg:block absolute bottom-24 left-16 z-20 font-mono text-[10px] text-[#181818]/40 tracking-wider">
         <span>ÉTANCHÉITÉ</span>
-        <span className="mx-1 lg:mx-2">·</span>
+        <span className="mx-2">·</span>
         <span>100M</span>
       </div>
 
-      <div className="absolute bottom-20 lg:bottom-24 right-4 lg:right-16 z-20 font-mono text-[8px] lg:text-[10px] text-[#181818]/40 tracking-wider text-right">
+      <div className="hidden lg:block absolute bottom-24 right-16 z-20 font-mono text-[10px] text-[#181818]/40 tracking-wider text-right">
         <span>REF. TLM-01</span>
       </div>
 
-      {/* Image - Desktop: full cover, Mobile: centered */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 lg:translate-y-0 lg:top-0 lg:inset-0">
+      {/* Image - Desktop: full cover, Mobile: centered full width */}
+      <div className="absolute inset-x-0 top-[62%] -translate-y-1/2 lg:translate-y-0 lg:top-0 lg:inset-0">
         <img
           src="/montre2.png"
           alt="TOLEM Watch"
-          className="w-full h-auto lg:h-full object-cover object-center"
+          className="w-full h-auto scale-[1.2] origin-center lg:h-full lg:scale-100 object-cover object-center"
         />
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-      >
-        <span className="font-mono text-[8px] lg:text-[9px] tracking-[0.2em] text-[#181818]/40 uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          className="w-px h-8 bg-gradient-to-b from-[#181818]/40 to-transparent"
-        />
-      </motion.div>
     </section>
   );
 }
