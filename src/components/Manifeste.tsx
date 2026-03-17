@@ -7,9 +7,6 @@ import DecryptText from "./DecryptText";
 const models = [
   { id: "TLM-01", year: "2024", name: "Origine", desc: "Le modèle fondateur" },
   { id: "TLM-02", year: "2025", name: "Voyageur", desc: "Double fuseau horaire" },
-  { id: "TLM-03", year: "2026", name: "Chronographe", desc: "Précision absolue" },
-  { id: "TLM-04", year: "2027", name: "Squelette", desc: "L'art dévoilé" },
-  { id: "TLM-05", year: "2028", name: "Perpetuel", desc: "Calendrier éternel" },
 ];
 
 export default function Manifeste() {
@@ -37,23 +34,17 @@ export default function Manifeste() {
   // Timeline appears
   const timelineOpacity = useTransform(scrollYProgress, [0.22, 0.32], [0, 1]);
 
-  // Years scroll horizontally (desktop) - first year centered at start, last year centered at end
-  // 5 years, each 200px wide = 1000px total
-  // Item centers at: 100, 300, 500, 700, 900px from container left
-  // Start: first year centered → x = 50vw - 100px
-  // End: last year centered → x = 50vw - 900px
-  const yearX = useTransform(scrollYProgress, [0.32, 0.92], ["calc(50vw - 100px)", "calc(50vw - 900px)"]);
+  // Years scroll horizontally (desktop) - 2 years, each 200px wide = 400px total
+  const yearX = useTransform(scrollYProgress, [0.32, 0.92], ["calc(50vw - 100px)", "calc(50vw - 300px)"]);
 
-  // Years scroll vertically (mobile) - first year centered at start, last year centered at end
-  // 5 years, each 80px tall = 400px total
-  // Start: first year at 50vh - 40px, End: last year at 50vh
-  const yearY = useTransform(scrollYProgress, [0.32, 0.92], ["calc(50vh - 40px)", "calc(50vh - 360px)"]);
+  // Years scroll vertically (mobile) - 2 years, each 80px tall = 160px total
+  const yearY = useTransform(scrollYProgress, [0.32, 0.92], ["calc(50vh - 40px)", "calc(50vh - 120px)"]);
 
 
   // Track active year - changes when year reaches center
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (latest > 0.32) {
-      // 0.32 to 0.92 = 0.6 range for 5 years (0.12 per year)
+      // 0.32 to 0.92 = 0.6 range for 2 years (0.3 per year)
       const progress = (latest - 0.32) / 0.60;
       const index = Math.min(Math.round(progress * (models.length - 1)), models.length - 1);
       if (index !== activeYear) {
@@ -158,9 +149,9 @@ export default function Manifeste() {
           className="absolute right-8 lg:right-16 top-[38%] z-20 text-right hidden lg:block"
         >
           <div className="font-display font-light text-[#181818] leading-[1.1]" style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}>
-            <DecryptText text="42mm" delay={400} speed={40} />
+            <DecryptText text="41mm" delay={400} speed={40} />
             <span className="text-[#C8C8C8] mx-3">—</span>
-            <DecryptText text="10mm" delay={450} speed={40} />
+            <DecryptText text="11,6mm" delay={450} speed={40} />
           </div>
           <p className="text-[11px] text-[#888] mt-2 tracking-[0.05em]">
             <DecryptText text="Diamètre — Épaisseur" delay={500} speed={20} />
@@ -177,7 +168,7 @@ export default function Manifeste() {
           </div>
           <p className="text-[11px] lg:text-[12px] text-[#666] leading-[1.7] max-w-[240px] lg:max-w-[280px]">
             <DecryptText
-              text="TOLEM naît à Besançon, capitale historique de l'horlogerie française."
+              text="2024 — TOLEM naît à Besançon, capitale historique de l'horlogerie française."
               delay={600}
               speed={1}
             />

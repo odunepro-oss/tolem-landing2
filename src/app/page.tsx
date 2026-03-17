@@ -4,6 +4,7 @@ import Manifeste from "@/components/Manifeste";
 import Decouvrir from "@/components/Decouvrir";
 import Ressources from "@/components/Ressources";
 import Newsletter from "@/components/Newsletter";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Decouvrir />
       <Ressources />
       <Newsletter />
+      <FAQ />
       <Footer />
     </main>
   );

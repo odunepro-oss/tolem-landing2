@@ -10,7 +10,7 @@ const models = [
     year: "2024",
     name: "Origine",
     description:
-      "Le modèle fondateur de la maison TOLEM. Un design épuré qui incarne notre philosophie : la perfection dans la simplicité. Boîtier titane grade 5, mouvement manufacture.",
+      "L'art de mesurer l'instant",
   },
   {
     id: "TLM-02",
@@ -19,16 +19,9 @@ const models = [
     description:
       "Double fuseau horaire pour les esprits nomades. Une complication GMT intégrée avec élégance, pour ceux qui vivent entre deux mondes.",
   },
-  {
-    id: "TLM-03",
-    year: "2026",
-    name: "Chronographe",
-    description:
-      "La précision au service de la performance. Un chronographe intégré manufacture, conçu pour mesurer l'instant avec une exactitude absolue.",
-  },
 ];
 
-const years = ["2024", "2025", "2026", "2027", "2028"];
+const years = ["2024", "2025"];
 
 export default function Collection() {
   const containerRef = useRef<HTMLElement>(null);

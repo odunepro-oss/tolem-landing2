@@ -8,17 +8,17 @@ const items = [
   {
     title: "Mouvement Manufacture",
     description:
-      "Notre calibre TLM-01 est entièrement conçu et assemblé dans notre atelier de Besançon. 347 composants, 42 rubis, 72 heures de réserve de marche.",
+      "La TLM-01 est équipée du calibre Miyota 82S5, assemblé dans notre atelier de Besançon. Verre saphir traité anti-reflet, fond clipsé, 42 heures de réserve de marche.",
   },
   {
     title: "Garantie à Vie",
     description:
-      "Chaque garde-temps TOLEM est accompagné d'une garantie à vie sur le mouvement. Notre engagement envers l'excellence ne connaît pas de date d'expiration.",
+      "Chaque montre TOLEM est accompagnée d'une garantie à vie sur le mouvement. Notre engagement envers l'excellence ne connaît pas de date d'expiration.",
   },
   {
     title: "Service & Révision",
     description:
-      "Notre atelier assure l'entretien et la révision de chaque pièce. Un service personnalisé pour préserver la précision de votre garde-temps.",
+      "Notre atelier assure l'entretien et la révision de chaque pièce. Un service personnalisé pour préserver la précision de votre montre.",
   },
 ];
 

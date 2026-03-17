@@ -17,7 +17,7 @@ const resources = [
   },
   {
     title: "Le Mouvement",
-    subtitle: "Miyota 9015",
+    subtitle: "Miyota 82S5",
     label: "03",
   },
   {

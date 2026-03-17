@@ -11,28 +11,28 @@ export default function Hero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute inset-x-0 top-[28%] lg:top-[14%] z-20 text-center px-6"
+        className="absolute inset-x-0 top-[28%] lg:top-[18%] z-20 text-center px-6"
       >
-        <h1 className="font-display text-[36px] lg:text-[64px] xl:text-[80px] text-[#181818] leading-[0.92] tracking-[-0.03em]">
-          <DecryptText text="L'art de mesurer" delay={300} speed={40} />
+        <h1 className="font-display font-medium text-[32px] lg:text-[40px] xl:text-[48px] text-[#181818] leading-[1.0] tracking-[-0.03em]">
+          <DecryptText text="L'héritage ne se copie pas." delay={300} speed={40} />
           <br />
-          <DecryptText text="l'instant" delay={500} speed={40} />
+          <DecryptText text="Il se réinvente." delay={500} speed={40} />
         </h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-4 lg:mt-6 text-[11px] lg:text-[13px] tracking-[0.2em] text-[#181818]/50 uppercase"
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="mt-3 lg:mt-4 text-[11px] lg:text-[12px] tracking-[0.15em] text-[#181818]/50 uppercase"
         >
-          <DecryptText text="Horlogerie Française — Besançon" delay={800} speed={20} />
+          <DecryptText text="Deux générations. Une montre." delay={700} speed={20} />
         </motion.p>
       </motion.div>
 
       {/* Micro Infos - Mono */}
       <div className="absolute top-20 lg:top-24 left-4 lg:left-16 z-20 font-mono text-[8px] lg:text-[10px] text-[#181818]/40 tracking-wider">
-        <span>42MM</span>
+        <span>41MM</span>
         <span className="mx-1 lg:mx-2">—</span>
-        <span>10.2MM</span>
+        <span>11,6MM</span>
       </div>
 
       <div className="absolute top-20 lg:top-24 right-4 lg:right-16 z-20 font-mono text-[8px] lg:text-[10px] text-[#181818]/40 tracking-wider text-right">
@@ -40,19 +40,19 @@ export default function Hero() {
       </div>
 
       <div className="absolute top-1/2 left-4 lg:left-16 z-20 font-mono text-[8px] lg:text-[10px] text-[#181818]/40 tracking-wider -translate-y-1/2 hidden lg:block">
-        <div>SWISS MVT</div>
-        <div className="mt-1">MIYOTA 9015</div>
+        <div>ASSEMBLÉ À</div>
+        <div className="mt-1">Besançon</div>
       </div>
 
       <div className="absolute top-1/2 right-4 lg:right-16 z-20 font-mono text-[8px] lg:text-[10px] text-[#181818]/40 tracking-wider text-right -translate-y-1/2 hidden lg:block">
-        <div>72H RESERVE</div>
-        <div className="mt-1">28,800 VPH</div>
+        <div>RÉSERVE DE MARCHE</div>
+        <div className="mt-1">42H</div>
       </div>
 
       <div className="absolute bottom-20 lg:bottom-24 left-4 lg:left-16 z-20 font-mono text-[8px] lg:text-[10px] text-[#181818]/40 tracking-wider">
-        <span>SAPPHIRE</span>
+        <span>ÉTANCHÉITÉ</span>
         <span className="mx-1 lg:mx-2">·</span>
-        <span>10ATM</span>
+        <span>100M</span>
       </div>
 
       <div className="absolute bottom-20 lg:bottom-24 right-4 lg:right-16 z-20 font-mono text-[8px] lg:text-[10px] text-[#181818]/40 tracking-wider text-right">
