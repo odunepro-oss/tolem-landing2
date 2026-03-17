@@ -55,16 +55,12 @@ export default function Decouvrir() {
           >
             {/* Title */}
             <div className="lg:col-span-3">
-              <h3 className="text-[15px] lg:text-[16px] text-[#181818]">
-                <DecryptText text={item.title} delay={150 + index * 100} speed={30} />
-              </h3>
+              <h3 className="text-[15px] lg:text-[16px] text-[#181818]">{item.title}</h3>
             </div>
 
             {/* Description */}
             <div className="lg:col-span-6">
-              <p className="text-[14px] text-[#555] leading-[1.8]">
-                <DecryptText text={item.description} delay={200 + index * 100} speed={1} />
-              </p>
+              <p className="text-[14px] text-[#555] leading-[1.8]">{item.description}</p>
             </div>
 
             <div className="lg:col-span-3" />

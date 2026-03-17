@@ -79,7 +79,7 @@ export default function EarlyAccessButton() {
                 {/* Left - Content */}
                 <div>
                   <div className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">
-                    <DecryptText text="Kickstarter — Mars 2026" delay={50} speed={20} />
+                    Kickstarter — Mars 2026
                   </div>
 
                   <h2 className="font-display text-[28px] lg:text-[38px] text-[#181818] leading-[1.1] mb-6">
@@ -91,11 +91,7 @@ export default function EarlyAccessButton() {
                   </h2>
 
                   <p className="text-[13px] lg:text-[14px] text-[#666] leading-[1.8] mb-8 max-w-[360px]">
-                    <DecryptText
-                      text="Inscrivez-vous pour recevoir un accès prioritaire à notre campagne Kickstarter et bénéficier d'un tarif exclusif réservé aux premiers soutiens."
-                      delay={300}
-                      speed={1}
-                    />
+                    Inscrivez-vous pour recevoir un accès prioritaire à notre campagne Kickstarter et bénéficier d'un tarif exclusif réservé aux premiers soutiens.
                   </p>
 
                   {/* Email Input */}

@@ -70,12 +70,8 @@ export default function Ressources() {
 
                 {/* Info */}
                 <div className="pt-4">
-                  <h3 className="text-[14px] text-[#181818] mb-1">
-                    <DecryptText text={item.title} delay={200 + index * 80} speed={30} />
-                  </h3>
-                  <p className="text-[12px] text-[#888]">
-                    <DecryptText text={item.subtitle} delay={250 + index * 80} speed={30} />
-                  </p>
+                  <h3 className="text-[14px] text-[#181818] mb-1">{item.title}</h3>
+                  <p className="text-[12px] text-[#888]">{item.subtitle}</p>
                 </div>
               </motion.div>
             ))}
@@ -101,12 +97,8 @@ export default function Ressources() {
 
               {/* Info */}
               <div className="pt-5">
-                <h3 className="text-[15px] text-[#181818] mb-1">
-                  <DecryptText text={item.title} delay={200 + index * 80} speed={30} />
-                </h3>
-                <p className="text-[13px] text-[#888]">
-                  <DecryptText text={item.subtitle} delay={250 + index * 80} speed={30} />
-                </p>
+                <h3 className="text-[15px] text-[#181818] mb-1">{item.title}</h3>
+                <p className="text-[13px] text-[#888]">{item.subtitle}</p>
               </div>
             </motion.div>
           ))}

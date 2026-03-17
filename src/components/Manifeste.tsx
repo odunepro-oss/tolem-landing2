@@ -148,13 +148,11 @@ export default function Manifeste() {
           className="absolute right-8 lg:right-16 top-[38%] z-20 text-right hidden lg:block"
         >
           <div className="font-display font-light text-[#181818] leading-[1.1]" style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}>
-            <DecryptText text="41mm" delay={400} speed={40} />
+            41mm
             <span className="text-[#C8C8C8] mx-3">—</span>
-            <DecryptText text="11,6mm" delay={450} speed={40} />
+            11,6mm
           </div>
-          <p className="text-[11px] text-[#888] mt-2 tracking-[0.05em]">
-            <DecryptText text="Diamètre — Épaisseur" delay={500} speed={20} />
-          </p>
+          <p className="text-[11px] text-[#888] mt-2 tracking-[0.05em]">Diamètre — Épaisseur</p>
         </motion.div>
 
         {/* Bottom Left - Parallax */}
@@ -162,16 +160,8 @@ export default function Manifeste() {
           style={{ opacity: textOpacity, y: bottomParallaxY }}
           className="absolute left-8 lg:left-16 bottom-[8%] z-20"
         >
-          <div className="font-display font-light text-[24px] lg:text-[32px] text-[#181818] mb-2">
-            <DecryptText text="2024" delay={500} speed={40} />
-          </div>
-          <p className="text-[11px] lg:text-[12px] text-[#666] leading-[1.7] max-w-[240px] lg:max-w-[280px]">
-            <DecryptText
-              text="2024 — TOLEM naît à Besançon, capitale historique de l'horlogerie française."
-              delay={600}
-              speed={1}
-            />
-          </p>
+          <div className="font-display font-light text-[24px] lg:text-[32px] text-[#181818] mb-2">2024</div>
+          <p className="text-[11px] lg:text-[12px] text-[#666] leading-[1.7] max-w-[240px] lg:max-w-[280px]">2024 — TOLEM naît à Besançon, capitale historique de l'horlogerie française.</p>
         </motion.div>
 
         {/* Bottom Right - Parallax */}
@@ -179,12 +169,8 @@ export default function Manifeste() {
           style={{ opacity: textOpacity, y: bottomParallaxY }}
           className="absolute right-8 lg:right-16 bottom-[8%] z-20 text-right hidden lg:block"
         >
-          <div className="text-[12px] text-[#181818] mb-1">
-            <DecryptText text="Besançon" delay={650} speed={30} />
-          </div>
-          <div className="text-[10px] text-[#C8C8C8] tracking-[0.05em]">
-            <DecryptText text="47.2378° N, 6.0241° E" delay={700} speed={20} />
-          </div>
+          <div className="text-[12px] text-[#181818] mb-1">Besançon</div>
+          <div className="text-[10px] text-[#C8C8C8] tracking-[0.05em]">47.2378° N, 6.0241° E</div>
         </motion.div>
 
         {/* Timeline - Desktop (Horizontal) */}

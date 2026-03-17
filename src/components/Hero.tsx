@@ -24,7 +24,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="mt-3 lg:mt-4 text-[11px] lg:text-[12px] tracking-[0.15em] text-[#181818]/50 uppercase"
         >
-          <DecryptText text="Deux générations. Une montre." delay={700} speed={20} />
+          Deux générations. Une montre.
         </motion.p>
       </motion.div>
 

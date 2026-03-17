@@ -98,29 +98,19 @@ export default function Collection() {
           {/* Left - Info */}
           <div className="p-10 lg:p-16 flex flex-col justify-between min-h-[350px] lg:min-h-[450px]">
             <div>
-              <div className="text-[11px] tracking-[0.12em] text-[#888] uppercase mb-6">
-                <DecryptText text={activeModel.id} delay={200} speed={30} />
-              </div>
-              <h3 className="font-display text-[26px] lg:text-[32px] text-[#181818] mb-8">
-                <DecryptText text={activeModel.name} delay={300} speed={40} />
-              </h3>
-              <p className="text-[14px] lg:text-[15px] text-[#555] leading-[1.9] max-w-[420px]">
-                <DecryptText text={activeModel.description} delay={400} speed={1} />
-              </p>
+              <div className="text-[11px] tracking-[0.12em] text-[#888] uppercase mb-6">{activeModel.id}</div>
+              <h3 className="font-display text-[26px] lg:text-[32px] text-[#181818] mb-8">{activeModel.name}</h3>
+              <p className="text-[14px] lg:text-[15px] text-[#555] leading-[1.9] max-w-[420px]">{activeModel.description}</p>
             </div>
 
             <div className="mt-10">
-              <span className="inline-block text-[13px] text-[#181818] underline underline-offset-4 cursor-pointer hover:text-[#888] transition-colors">
-                <DecryptText text="Découvrir" delay={500} speed={30} />
-              </span>
+              <span className="inline-block text-[13px] text-[#181818] underline underline-offset-4 cursor-pointer hover:text-[#888] transition-colors">Découvrir</span>
             </div>
           </div>
 
           {/* Right - Image Placeholder */}
           <div className="bg-[#F0F0F0] min-h-[300px] lg:min-h-[450px] flex items-center justify-center">
-            <span className="text-[11px] text-[#888] tracking-[0.12em] uppercase">
-              <DecryptText text={`Image ${activeModel.id}`} delay={350} speed={30} />
-            </span>
+            <span className="text-[11px] text-[#888] tracking-[0.12em] uppercase">{`Image ${activeModel.id}`}</span>
           </div>
         </motion.div>
 

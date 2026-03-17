@@ -45,13 +45,7 @@ export default function Footer() {
             <h2 className="font-display text-[48px] lg:text-[64px] text-white leading-[0.9] mb-6">
               <DecryptText text="Tolem" delay={100} speed={50} />
             </h2>
-            <p className="text-[13px] text-[#666] leading-[1.8] max-w-[300px]">
-              <DecryptText
-                text="Nous ne cherchons pas la perfection. Nous l'exigeons."
-                delay={200}
-                speed={3}
-              />
-            </p>
+            <p className="text-[13px] text-[#666] leading-[1.8] max-w-[300px]">Nous ne cherchons pas la perfection. Nous l'exigeons.</p>
           </motion.div>
 
           {/* Links */}
@@ -61,15 +55,11 @@ export default function Footer() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h3 className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">
-                <DecryptText text="Collection" delay={150} speed={30} />
-              </h3>
+              <h3 className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">Collection</h3>
               <ul className="space-y-3">
                 {footerLinks.collection.map((link, i) => (
                   <li key={link.label}>
-                    <span className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">
-                      <DecryptText text={link.label} delay={200 + i * 50} speed={20} />
-                    </span>
+                    <span className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{link.label}</span>
                   </li>
                 ))}
               </ul>
@@ -80,15 +70,11 @@ export default function Footer() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.15 }}
             >
-              <h3 className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">
-                <DecryptText text="La Maison" delay={200} speed={30} />
-              </h3>
+              <h3 className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">La Maison</h3>
               <ul className="space-y-3">
                 {footerLinks.maison.map((link, i) => (
                   <li key={link.label}>
-                    <span className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">
-                      <DecryptText text={link.label} delay={250 + i * 50} speed={20} />
-                    </span>
+                    <span className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{link.label}</span>
                   </li>
                 ))}
               </ul>
@@ -99,15 +85,11 @@ export default function Footer() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h3 className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">
-                <DecryptText text="Service" delay={250} speed={30} />
-              </h3>
+              <h3 className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">Service</h3>
               <ul className="space-y-3">
-                {footerLinks.service.map((link, i) => (
+                {footerLinks.service.map((link) => (
                   <li key={link.label}>
-                    <span className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">
-                      <DecryptText text={link.label} delay={300 + i * 50} speed={20} />
-                    </span>
+                    <span className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{link.label}</span>
                   </li>
                 ))}
               </ul>
@@ -123,27 +105,15 @@ export default function Footer() {
           className="pt-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6"
         >
           <div className="flex flex-wrap items-center gap-6 lg:gap-10">
-            <span className="text-[11px] tracking-[0.1em] text-[#444]">
-              <DecryptText text="© 2026 TOLEM" delay={400} speed={30} />
-            </span>
-            <span className="text-[11px] tracking-[0.1em] text-[#444]">
-              <DecryptText text="Besançon, France" delay={450} speed={30} />
-            </span>
-            <span className="text-[11px] tracking-[0.1em] text-[#444]">
-              <DecryptText text="Horlogerie Française" delay={500} speed={30} />
-            </span>
+            <span className="text-[11px] tracking-[0.1em] text-[#444]">© 2026 TOLEM</span>
+            <span className="text-[11px] tracking-[0.1em] text-[#444]">Besançon, France</span>
+            <span className="text-[11px] tracking-[0.1em] text-[#444]">Horlogerie Française</span>
           </div>
 
           <div className="flex items-center gap-8">
-            <span className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer">
-              <DecryptText text="Instagram" delay={500} speed={30} />
-            </span>
-            <span className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer">
-              <DecryptText text="LinkedIn" delay={550} speed={30} />
-            </span>
-            <span className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer">
-              <DecryptText text="Newsletter" delay={600} speed={30} />
-            </span>
+            <span className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer">Instagram</span>
+            <span className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer">LinkedIn</span>
+            <span className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer">Newsletter</span>
           </div>
         </motion.div>
 

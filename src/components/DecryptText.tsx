@@ -20,6 +20,7 @@ export default function DecryptText({
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [displayText, setDisplayText] = useState(text);
   const lastTextRef = useRef(text);
+  const intervalSpeed = Math.max(1, Math.floor(speed / 2));
 
   const runAnimation = useCallback((animDelay: number) => {
     const timeout = setTimeout(() => {
@@ -53,13 +54,13 @@ export default function DecryptText({
           clearInterval(interval);
           setDisplayText(text);
         }
-      }, speed);
+      }, intervalSpeed);
 
       return () => clearInterval(interval);
     }, animDelay);
 
     return () => clearTimeout(timeout);
-  }, [text, speed]);
+  }, [text, intervalSpeed]);
 
   // Re-animate when text changes (for dynamic content like Collection)
   useEffect(() => {
@@ -76,8 +77,14 @@ export default function DecryptText({
   }, [isInView, delay, runAnimation]);
 
   return (
-    <span ref={ref} className={className}>
-      {displayText}
+    <span ref={ref} className={`relative inline-grid align-baseline ${className}`}>
+      <span className="invisible whitespace-pre" aria-hidden="true">
+        {text}
+      </span>
+      <span className="absolute inset-0 whitespace-pre" aria-hidden="true">
+        {displayText}
+      </span>
+      <span className="sr-only">{text}</span>
     </span>
   );
 }
