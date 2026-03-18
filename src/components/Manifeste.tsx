@@ -53,33 +53,12 @@ export default function Manifeste() {
     }
   });
 
-
-  // Touch/swipe handling for mobile
-  const touchStartRef = useRef(0);
-
-  function handleTouchStart(e: React.TouchEvent): void {
-    touchStartRef.current = e.touches[0].clientX;
-  }
-
-  function handleTouchEnd(e: React.TouchEvent): void {
-    const diff = touchStartRef.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0 && activeYear < models.length - 1) {
-        setActiveYear(prev => prev + 1);
-      } else if (diff < 0 && activeYear > 0) {
-        setActiveYear(prev => prev - 1);
-      }
-    }
-  }
-
   return (
     <section
       id="manifeste"
       ref={containerRef}
       className="relative bg-[#F5F5F5]"
       style={{ height: "450vh" }}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
 

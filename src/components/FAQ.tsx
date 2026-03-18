@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { campaignStats } from "@/lib/landingContent";
 
 const faqs = [
   {
@@ -22,7 +23,7 @@ const faqs = [
   },
   {
     question: "Quand vais-je recevoir ma montre ?",
-    answer: "Les premières livraisons sont prévues pour le Q4 2026.",
+    answer: `Les premières livraisons sont prévues sous ${campaignStats.deliveryValue} en ${campaignStats.deliveryUnit}.`,
   },
 ];
 
@@ -30,7 +31,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="bg-white px-6 lg:px-16 py-24 lg:py-32">
+    <section id="faq" className="bg-white px-6 lg:px-16 py-24 lg:py-32">
       <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24">
 
         {/* Left */}
@@ -53,6 +54,8 @@ export default function FAQ() {
             <div key={i} className="border-t border-[#E8E8E8]">
               <button
                 onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
+                aria-controls={`faq-panel-${i}`}
                 className="w-full flex justify-between items-baseline py-5 text-left gap-8"
               >
                 <span className="text-[14px] text-[#181818]">{faq.question}</span>
@@ -60,19 +63,27 @@ export default function FAQ() {
                   {open === i ? "−" : "+"}
                 </span>
               </button>
-              <AnimatePresence initial={false}>
-                {open === i && (
+              <motion.div
+                initial={false}
+                animate={{
+                  gridTemplateRows: open === i ? "1fr" : "0fr",
+                  opacity: open === i ? 1 : 0,
+                }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                className="grid"
+                id={`faq-panel-${i}`}
+              >
+                <div className="overflow-hidden">
                   <motion.p
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden text-[13px] text-[#181818]/50 leading-[1.8] pb-5"
+                    initial={false}
+                    animate={{ y: open === i ? 0 : -8 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="pb-5 text-[13px] leading-[1.8] text-[#181818]/50"
                   >
                     {faq.answer}
                   </motion.p>
-                )}
-              </AnimatePresence>
+                </div>
+              </motion.div>
             </div>
           ))}
           <div className="border-t border-[#E8E8E8]" />

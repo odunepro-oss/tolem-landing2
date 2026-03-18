@@ -35,8 +35,7 @@ export default function Ressources() {
     <section
       id="ressources"
       ref={containerRef}
-      className="relative bg-[#F5F5F5]"
-      style={{ padding: "80px 0" }}
+      className="relative bg-[#F5F5F5] py-16 lg:py-20"
     >
       <div className="max-w-[1400px] mx-auto">
         {/* Section Title */}
@@ -49,17 +48,15 @@ export default function Ressources() {
           <DecryptText text="Ressources" delay={100} />
         </motion.h2>
 
-        {/* Mobile: Horizontal Scroll */}
-        <div className="lg:hidden overflow-x-auto scrollbar-hide px-6">
-          <div className="flex gap-3" style={{ width: "max-content" }}>
+        {/* Mobile: Vertical Stack */}
+        <div className="space-y-4 px-6 lg:hidden">
             {resources.map((item, index) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
-                className="group cursor-pointer flex-shrink-0"
-                style={{ width: "70vw" }}
+                className="group cursor-pointer"
               >
                 {/* Image Placeholder */}
                 <div className="aspect-[4/3] bg-[#E8E8E8] flex items-center justify-center">
@@ -75,7 +72,6 @@ export default function Ressources() {
                 </div>
               </motion.div>
             ))}
-          </div>
         </div>
 
         {/* Desktop: Grid with small gap */}

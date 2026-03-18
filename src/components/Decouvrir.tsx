@@ -29,8 +29,7 @@ export default function Decouvrir() {
   return (
     <section
       ref={containerRef}
-      className="relative bg-[#F5F5F5]"
-      style={{ padding: "80px 40px" }}
+      className="relative bg-[#F5F5F5] px-6 py-16 sm:px-8 lg:px-10 lg:py-20"
     >
       <div className="max-w-[1400px] mx-auto">
         {/* Section Title */}

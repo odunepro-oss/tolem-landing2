@@ -19,8 +19,8 @@ export default function Hero() {
           <DecryptText text="Il se réinvente." delay={500} speed={40} />
         </h1>
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
           className="mt-3 lg:mt-4 text-[11px] lg:text-[12px] tracking-[0.15em] text-[#181818]/50 uppercase"
         >
@@ -60,13 +60,18 @@ export default function Hero() {
       </div>
 
       {/* Image - Desktop: full cover, Mobile: centered full width */}
-      <div className="absolute inset-x-0 top-[62%] -translate-y-1/2 lg:translate-y-0 lg:top-0 lg:inset-0">
+      <motion.div
+        initial={{ y: 120, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1.1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute inset-x-0 top-[62%] -translate-y-1/2 lg:translate-y-0 lg:top-0 lg:inset-0"
+      >
         <img
           src="/montre2.png"
           alt="TOLEM Watch"
           className="w-full h-auto scale-[1.2] origin-center lg:h-full lg:scale-100 object-cover object-center"
         />
-      </div>
+      </motion.div>
 
     </section>
   );

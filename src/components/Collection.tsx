@@ -33,8 +33,7 @@ export default function Collection() {
   return (
     <section
       ref={containerRef}
-      className="relative bg-[#F5F5F5]"
-      style={{ padding: "80px 40px" }}
+      className="relative bg-[#F5F5F5] px-6 py-16 sm:px-8 lg:px-10 lg:py-20"
     >
       <div className="max-w-[1400px] mx-auto">
         {/* Section Title */}
@@ -49,10 +48,10 @@ export default function Collection() {
 
         {/* Timeline */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative mb-20"
+          className="relative mb-16 lg:mb-20"
         >
           {/* Line */}
           <div className="absolute top-[10px] left-0 right-0 h-px bg-[#D8D8D8]" />
@@ -96,7 +95,7 @@ export default function Collection() {
           className="grid lg:grid-cols-2 gap-0 border border-[#E0E0E0] bg-white"
         >
           {/* Left - Info */}
-          <div className="p-10 lg:p-16 flex flex-col justify-between min-h-[350px] lg:min-h-[450px]">
+          <div className="flex min-h-[350px] flex-col justify-between p-6 sm:p-8 lg:min-h-[450px] lg:p-16">
             <div>
               <div className="text-[11px] tracking-[0.12em] text-[#888] uppercase mb-6">{activeModel.id}</div>
               <h3 className="font-display text-[26px] lg:text-[32px] text-[#181818] mb-8">{activeModel.name}</h3>
@@ -116,8 +115,8 @@ export default function Collection() {
 
         {/* Navigation */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex items-center justify-between mt-8"
         >

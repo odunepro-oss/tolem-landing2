@@ -134,6 +134,9 @@
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -144,11 +147,17 @@ body {
   letter-spacing: 0.01em;
   color: var(--gray-800);
   background: var(--gray-100);
+  width: 100%;
+  overflow-x: clip;
 }
 
 h1,
 h2 {
   text-wrap: balance;
+}
+
+section[id] {
+  scroll-margin-top: 96px;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -211,4 +220,11 @@ h2 {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
 }

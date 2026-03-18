@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import DecryptText from "./DecryptText";
+import { campaignStats } from "@/lib/landingContent";
 
 export default function Newsletter() {
   const containerRef = useRef<HTMLElement>(null);
@@ -12,11 +13,10 @@ export default function Newsletter() {
     <section
       id="newsletter"
       ref={containerRef}
-      className="relative bg-[#F5F5F5]"
-      style={{ padding: "120px 40px" }}
+      className="relative bg-[#F5F5F5] px-6 py-20 sm:px-8 lg:px-10 lg:py-[120px]"
     >
       <div className="max-w-[1400px] mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
           {/* Left - Content */}
           <div>
             <motion.div
@@ -68,8 +68,8 @@ export default function Newsletter() {
             </motion.div>
 
             <motion.p
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-[11px] text-[#999] mt-4"
             >
@@ -87,7 +87,7 @@ export default function Newsletter() {
             <div className="grid grid-cols-2 gap-8 lg:gap-12">
               <div className="border-l border-[#C8C8C8] pl-6">
                 <div className="text-[11px] tracking-[0.12em] text-[#999] uppercase mb-3">
-                  Objectif
+                  {campaignStats.objectiveLabel}
                 </div>
                 <div className="font-display text-[32px] lg:text-[42px] text-[#181818] flex items-center gap-1.5">
                   <svg
@@ -98,27 +98,27 @@ export default function Newsletter() {
                     <line x1="6" y1="1.5" x2="6" y2="10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
                     <line x1="1.5" y1="6" x2="10.5" y2="6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
                   </svg>
-                  300
+                  {campaignStats.objectiveValue}
                 </div>
-                <div className="text-[12px] text-[#666] mt-1">pièces</div>
+                <div className="text-[12px] text-[#666] mt-1">{campaignStats.objectiveUnit}</div>
               </div>
 
               <div className="border-l border-[#C8C8C8] pl-6">
-                <div className="text-[11px] tracking-[0.12em] text-[#999] uppercase mb-3">Remise</div>
-                <div className="font-display text-[32px] lg:text-[42px] text-[#181818]">-33%</div>
-                <div className="text-[12px] text-[#666] mt-1">pour les 100 premiers</div>
+                <div className="text-[11px] tracking-[0.12em] text-[#999] uppercase mb-3">{campaignStats.discountLabel}</div>
+                <div className="font-display text-[32px] lg:text-[42px] text-[#181818]">{campaignStats.discountValue}</div>
+                <div className="text-[12px] text-[#666] mt-1">{campaignStats.discountUnit}</div>
               </div>
 
               <div className="border-l border-[#C8C8C8] pl-6">
-                <div className="text-[11px] tracking-[0.12em] text-[#999] uppercase mb-3">Livraison</div>
-                <div className="font-display text-[32px] lg:text-[42px] text-[#181818]">3M</div>
-                <div className="text-[12px] text-[#666] mt-1">2026</div>
+                <div className="text-[11px] tracking-[0.12em] text-[#999] uppercase mb-3">{campaignStats.deliveryLabel}</div>
+                <div className="font-display text-[32px] lg:text-[42px] text-[#181818]">{campaignStats.deliveryValue}</div>
+                <div className="text-[12px] text-[#666] mt-1">{campaignStats.deliveryUnit}</div>
               </div>
 
               <div className="border-l border-[#C8C8C8] pl-6">
-                <div className="text-[11px] tracking-[0.12em] text-[#999] uppercase mb-3">Garantie</div>
-                <div className="font-display text-[32px] lg:text-[42px] text-[#181818]">∞</div>
-                <div className="text-[12px] text-[#666] mt-1">à vie</div>
+                <div className="text-[11px] tracking-[0.12em] text-[#999] uppercase mb-3">{campaignStats.warrantyLabel}</div>
+                <div className="font-display text-[32px] lg:text-[42px] text-[#181818]">{campaignStats.warrantyValue}</div>
+                <div className="text-[12px] text-[#666] mt-1">{campaignStats.warrantyUnit}</div>
               </div>
             </div>
           </motion.div>

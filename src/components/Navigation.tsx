@@ -9,6 +9,7 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [time, setTime] = useState("");
   const lastScrollY = useRef(0);
+  const previousOverflowY = useRef("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,12 +48,13 @@ export default function Navigation() {
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
+      previousOverflowY.current = document.body.style.overflowY;
+      document.body.style.overflowY = "hidden";
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflowY = previousOverflowY.current;
     }
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflowY = previousOverflowY.current;
     };
   }, [mobileMenuOpen]);
 
@@ -66,6 +68,11 @@ export default function Navigation() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+
+    if (href === "#") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
 
     const element = document.querySelector(href);
     if (element) {
@@ -88,8 +95,8 @@ export default function Navigation() {
           <motion.a
             href="#"
             onClick={(e) => handleNavClick(e, "#")}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
             className="relative z-10"
           >
@@ -103,7 +110,7 @@ export default function Navigation() {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                initial={{ opacity: 0, y: -20 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + i * 0.1, duration: 0.6 }}
                 className="text-[12px] tracking-[0.1em] text-[#181818]/60 hover:text-[#181818] transition-colors duration-300 uppercase"
@@ -119,12 +126,12 @@ export default function Navigation() {
             <motion.a
               href="#newsletter"
               onClick={(e) => handleNavClick(e, "#newsletter")}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
               className="hidden lg:flex items-center gap-2 text-[12px] tracking-[0.1em] text-[#181818] hover:text-[#181818]/60 transition-colors group uppercase"
             >
-              <span>Découvrir</span>
+              <span>Rejoindre la liste</span>
               <svg
                 className="w-4 h-4 transition-transform group-hover:translate-x-1"
                 fill="none"
@@ -142,8 +149,8 @@ export default function Navigation() {
 
             {/* Mobile Menu Button */}
             <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 group relative z-50"
@@ -199,8 +206,8 @@ export default function Navigation() {
               ))}
 
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.3, duration: 0.4 }}
                 className="mt-8 font-mono text-[10px] tracking-wider text-[#181818]/40"

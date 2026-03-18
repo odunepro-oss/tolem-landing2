@@ -6,19 +6,19 @@ import DecryptText from "./DecryptText";
 
 const footerLinks = {
   collection: [
-    { label: "TLM-01 Origine" },
-    { label: "TLM-02 Voyageur" },
-    { label: "TLM-03 Chronographe" },
+    { label: "Manifeste", href: "#manifeste" },
+    { label: "Savoir-faire", href: "#savoirfaire" },
+    { label: "Ressources", href: "#ressources" },
   ],
   maison: [
-    { label: "Notre Histoire" },
-    { label: "L'Atelier" },
-    { label: "Savoir-faire" },
+    { label: "Pourquoi TOLEM", href: "#manifeste" },
+    { label: "Notre promesse", href: "#newsletter" },
+    { label: "FAQ", href: "#faq" },
   ],
   service: [
-    { label: "Garantie" },
-    { label: "Révision" },
-    { label: "Contact" },
+    { label: "Accès prioritaire", href: "#newsletter" },
+    { label: "Kickstarter", href: "#newsletter" },
+    { label: "Contact", href: "mailto:contact@tolem.fr" },
   ],
 };
 
@@ -30,7 +30,7 @@ export default function Footer() {
     <footer
       ref={containerRef}
       className="relative bg-[#0A0A0A] overflow-hidden"
-      style={{ padding: "80px 40px 300px" }}
+      style={{ padding: "80px 24px 220px" }}
     >
       <div className="max-w-[1400px] mx-auto">
         {/* Top Section */}
@@ -59,7 +59,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 {footerLinks.collection.map((link, i) => (
                   <li key={link.label}>
-                    <span className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{link.label}</span>
+                    <a href={link.href} className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{link.label}</a>
                   </li>
                 ))}
               </ul>
@@ -74,7 +74,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 {footerLinks.maison.map((link, i) => (
                   <li key={link.label}>
-                    <span className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{link.label}</span>
+                    <a href={link.href} className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{link.label}</a>
                   </li>
                 ))}
               </ul>
@@ -89,7 +89,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 {footerLinks.service.map((link) => (
                   <li key={link.label}>
-                    <span className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{link.label}</span>
+                    <a href={link.href} className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{link.label}</a>
                   </li>
                 ))}
               </ul>
@@ -99,8 +99,8 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="pt-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6"
         >
@@ -119,7 +119,7 @@ export default function Footer() {
 
         {/* Giant Watermark */}
         <div
-          className="absolute left-0 right-0 overflow-hidden pointer-events-none px-10"
+          className="absolute left-0 right-0 overflow-hidden pointer-events-none px-6 lg:px-10"
           style={{ bottom: '-20px' }}
         >
           <img
