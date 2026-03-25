@@ -2,8 +2,10 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Navigation() {
+  const { lang, t, toggleLang } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,15 +16,11 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       setScrolled(currentScrollY > 50);
-
-      // Hide on scroll down, show on scroll up (only when mobile menu is closed)
       if (!mobileMenuOpen) {
         const isScrollingDown = currentScrollY > lastScrollY.current && currentScrollY > 100;
         setHidden(isScrollingDown);
       }
-
       lastScrollY.current = currentScrollY;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -45,7 +43,6 @@ export default function Navigation() {
     return () => clearInterval(interval);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       previousOverflowY.current = document.body.style.overflowY;
@@ -59,21 +56,19 @@ export default function Navigation() {
   }, [mobileMenuOpen]);
 
   const navItems = [
-    { label: "Collection", href: "#manifeste" },
-    { label: "Savoir-faire", href: "#savoirfaire" },
-    { label: "Ressources", href: "#ressources" },
-    { label: "Contact", href: "#newsletter" },
+    { label: t.nav.collection, href: "#manifeste" },
+    { label: t.nav.savoirFaire, href: "#savoirfaire" },
+    { label: t.nav.ressources, href: "#ressources" },
+    { label: t.nav.contact, href: "#newsletter" },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-
     if (href === "#") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
-
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -107,7 +102,7 @@ export default function Navigation() {
           <div className="hidden lg:flex items-center gap-10">
             {navItems.map((item, i) => (
               <motion.a
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
                 initial={{ opacity: 0, y: 20 }}
@@ -121,7 +116,18 @@ export default function Navigation() {
           </div>
 
           {/* Right Side */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 lg:gap-6">
+            {/* Language Toggle */}
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45, duration: 0.6 }}
+              onClick={toggleLang}
+              className="text-[11px] tracking-[0.1em] text-[#181818]/50 hover:text-[#181818] transition-colors uppercase font-mono relative z-50"
+            >
+              {lang === "fr" ? "EN" : "FR"}
+            </motion.button>
+
             {/* CTA - Desktop */}
             <motion.a
               href="#newsletter"
@@ -131,7 +137,7 @@ export default function Navigation() {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="hidden lg:flex items-center gap-2 text-[12px] tracking-[0.1em] text-[#181818] hover:text-[#181818]/60 transition-colors group uppercase"
             >
-              <span>Rejoindre la liste</span>
+              <span>{t.nav.joinList}</span>
               <svg
                 className="w-4 h-4 transition-transform group-hover:translate-x-1"
                 fill="none"
@@ -192,7 +198,7 @@ export default function Navigation() {
             <div className="flex flex-col items-center justify-center h-full gap-8">
               {navItems.map((item, i) => (
                 <motion.a
-                  key={item.label}
+                  key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
                   initial={{ opacity: 0, y: 20 }}
@@ -212,7 +218,7 @@ export default function Navigation() {
                 transition={{ delay: 0.3, duration: 0.4 }}
                 className="mt-8 font-mono text-[10px] tracking-wider text-[#181818]/40"
               >
-                <span>BESANÇON</span>
+                <span>{t.nav.city}</span>
                 <span className="mx-2">—</span>
                 <span>{time}</span>
               </motion.div>
@@ -228,7 +234,7 @@ export default function Navigation() {
         transition={{ delay: 0.6, duration: 0.5 }}
         className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-2 font-mono text-[10px] tracking-wider"
       >
-        <span className="text-[#181818]/50">BESANÇON</span>
+        <span className="text-[#181818]/50">{t.nav.city}</span>
         <span className="text-[#181818]">{time}</span>
       </motion.div>
     </>

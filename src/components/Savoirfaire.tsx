@@ -2,9 +2,10 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import DecryptText from "./DecryptText";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Savoirfaire() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
@@ -22,7 +23,7 @@ export default function Savoirfaire() {
             transition={{ duration: 0.6 }}
             className="flex items-center gap-2"
           >
-            <span className="text-[12px] lg:text-[14px] text-[#181818]">Savoir-faire</span>
+            <span className="text-[12px] lg:text-[14px] text-[#181818]">{t.savoirfaire.label}</span>
             <span className="text-[10px] lg:text-[11px] text-[#888] align-super">(02)</span>
           </motion.div>
 
@@ -33,9 +34,9 @@ export default function Savoirfaire() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="section-title text-[#181818]"
             >
-              <DecryptText text="Précision Horlogère." delay={200} />
+              {t.savoirfaire.title1}
               <br />
-              <DecryptText text="Excellence Française." delay={400} />
+              {t.savoirfaire.title2}
             </motion.h2>
 
             <motion.p
@@ -44,7 +45,7 @@ export default function Savoirfaire() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="max-w-[340px] text-[13px] lg:text-[14px] text-[#555] leading-[1.7]"
             >
-              Chaque garde-temps TOLEM est assemblé à la main dans notre atelier de Besançon, perpétuant un savoir-faire horloger français séculaire.
+              {t.savoirfaire.description}
             </motion.p>
           </div>
         </div>
@@ -57,18 +58,18 @@ export default function Savoirfaire() {
         >
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:items-end lg:gap-10">
             <div>
-              <div className="text-[10px] tracking-[0.12em] text-[#888] uppercase mb-1">Étanchéité</div>
-              <div className="text-[24px] lg:text-[28px] text-[#181818] font-display tracking-[-0.03em]">100M</div>
+              <div className="text-[10px] tracking-[0.12em] text-[#888] uppercase mb-1">{t.savoirfaire.etancheiteLabel}</div>
+              <div className="text-[24px] lg:text-[28px] text-[#181818] font-display tracking-[-0.03em]">{t.savoirfaire.etancheiteValue}</div>
             </div>
 
             <div>
-              <div className="text-[10px] tracking-[0.12em] text-[#888] uppercase mb-1">Assemblé à</div>
-              <div className="text-[24px] lg:text-[28px] text-[#181818] font-display tracking-[-0.03em]">Besançon</div>
+              <div className="text-[10px] tracking-[0.12em] text-[#888] uppercase mb-1">{t.savoirfaire.madeLabel}</div>
+              <div className="text-[24px] lg:text-[28px] text-[#181818] font-display tracking-[-0.03em]">{t.savoirfaire.madeValue}</div>
             </div>
 
             <div>
-              <div className="text-[10px] tracking-[0.12em] text-[#888] uppercase mb-1">Réserve de marche</div>
-              <div className="text-[24px] lg:text-[28px] text-[#181818] font-display tracking-[-0.03em]">72H</div>
+              <div className="text-[10px] tracking-[0.12em] text-[#888] uppercase mb-1">{t.savoirfaire.reserveLabel}</div>
+              <div className="text-[24px] lg:text-[28px] text-[#181818] font-display tracking-[-0.03em]">{t.savoirfaire.reserveValue}</div>
             </div>
           </div>
         </motion.div>
@@ -79,7 +80,7 @@ export default function Savoirfaire() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="max-w-[720px] text-[14px] lg:text-[15px] text-[#181818] leading-[1.85] text-left"
         >
-          TOLEM incarne la convergence de deux héritages : l'excellence joaillière et l'ingénierie industrielle. Chaque mouvement est conçu, assemblé et contrôlé selon les standards les plus exigeants de l'horlogerie contemporaine.
+          {t.savoirfaire.bottomText}
         </motion.p>
       </div>
     </section>

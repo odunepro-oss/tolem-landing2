@@ -3,6 +3,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import SmoothScroll from "@/components/SmoothScroll";
 import EarlyAccessButton from "@/components/EarlyAccessButton";
+import { LanguageProvider } from "@/lib/LanguageContext";
 
 export const metadata: Metadata = {
   title: "TOLEM | Horlogerie Française",
@@ -18,10 +19,12 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className="antialiased overflow-x-clip">
-        <SmoothScroll />
-        <Navigation />
-        {children}
-        <EarlyAccessButton />
+        <LanguageProvider>
+          <SmoothScroll />
+          <Navigation />
+          {children}
+          <EarlyAccessButton />
+        </LanguageProvider>
       </body>
     </html>
   );
