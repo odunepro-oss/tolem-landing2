@@ -85,7 +85,7 @@ export default function Navigation() {
           scrolled || mobileMenuOpen ? "bg-[#F5F5F5]/95 backdrop-blur-md py-3" : "py-5"
         }`}
       >
-        <div className="max-w-[1600px] mx-auto px-6 md:px-10 flex items-center justify-between">
+        <div className="relative max-w-[1600px] mx-auto px-6 md:px-10 flex items-center justify-between">
           {/* Logo */}
           <motion.a
             href="#"
@@ -99,7 +99,7 @@ export default function Navigation() {
           </motion.a>
 
           {/* Center Navigation - Desktop */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-10">
             {navItems.map((item, i) => (
               <motion.a
                 key={item.href}
