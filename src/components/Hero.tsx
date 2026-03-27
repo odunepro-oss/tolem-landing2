@@ -16,7 +16,7 @@ export default function Hero() {
         transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         className="absolute inset-x-0 top-[28%] lg:top-[14%] z-20 text-center px-6"
       >
-        <h1 className="font-display text-[27px] lg:text-[42px] xl:text-[48px] text-[#181818] leading-[0.92] tracking-[-0.03em]">
+        <h1 className="font-display text-[29px] lg:text-[42px] xl:text-[48px] text-[#181818] leading-[0.92] tracking-[-0.03em]">
           <DecryptText text={t.hero.title1} delay={300} speed={40} />
           <br />
           <DecryptText text={t.hero.title2} delay={500} speed={40} />
