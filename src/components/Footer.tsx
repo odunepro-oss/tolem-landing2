@@ -112,7 +112,14 @@ export default function Footer() {
 
           <div className="flex items-center gap-8">
             <span className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer">Instagram</span>
-            <span className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer">LinkedIn</span>
+            <a
+              href="https://www.linkedin.com/company/tolemwatches/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors"
+            >
+              LinkedIn
+            </a>
             <span className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer">Newsletter</span>
           </div>
         </motion.div>
