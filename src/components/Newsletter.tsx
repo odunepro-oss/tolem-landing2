@@ -1,15 +1,41 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
+
+async function subscribeEmail(email: string): Promise<void> {
+  const url = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL;
+  if (!url) throw new Error("Webhook URL not configured");
+  await fetch(url, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify({ email }),
+  });
+}
 
 export default function Newsletter() {
   const { t } = useLanguage();
   const containerRef = useRef<HTMLElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
   const n = t.newsletter;
+
+  const handleSubmit = async () => {
+    if (!email || status === "loading") return;
+    setStatus("loading");
+    try {
+      await subscribeEmail(email);
+      setStatus("success");
+      setEmail("");
+    } catch {
+      setStatus("error");
+    }
+  };
 
   return (
     <section
@@ -57,15 +83,32 @@ export default function Newsletter() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <input
-                type="email"
-                placeholder={n.emailPlaceholder}
-                className="flex-1 bg-transparent border border-[#C8C8C8] px-5 py-4 text-[14px] text-[#181818] placeholder:text-[#999] focus:outline-none focus:border-[#181818] transition-colors"
-              />
-              <button className="bg-[#181818] text-white px-8 py-4 text-[12px] tracking-[0.1em] uppercase hover:bg-[#333] transition-colors">
-                {n.subscribe}
-              </button>
+              {status === "success" ? (
+                <p className="text-[13px] text-[#181818] py-4">Inscription confirmée, merci !</p>
+              ) : (
+                <>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+                    placeholder={n.emailPlaceholder}
+                    className="flex-1 bg-transparent border border-[#C8C8C8] px-5 py-4 text-[14px] text-[#181818] placeholder:text-[#999] focus:outline-none focus:border-[#181818] transition-colors"
+                  />
+                  <button
+                    onClick={handleSubmit}
+                    disabled={status === "loading"}
+                    className="bg-[#181818] text-white px-8 py-4 text-[12px] tracking-[0.1em] uppercase hover:bg-[#333] transition-colors disabled:opacity-50"
+                  >
+                    {status === "loading" ? "..." : n.subscribe}
+                  </button>
+                </>
+              )}
             </motion.div>
+
+            {status === "error" && (
+              <p className="text-[11px] text-red-500 mt-2">Une erreur est survenue, réessayez.</p>
+            )}
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}

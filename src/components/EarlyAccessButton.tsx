@@ -4,10 +4,36 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 
+async function subscribeEmail(email: string): Promise<void> {
+  const url = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL;
+  if (!url) throw new Error("Webhook URL not configured");
+  await fetch(url, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify({ email }),
+  });
+}
+
 export default function EarlyAccessButton() {
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
   const [isHeroOffset, setIsHeroOffset] = useState(true);
+  const [hideOnMobile, setHideOnMobile] = useState(false);
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async () => {
+    if (!email || status === "loading") return;
+    setStatus("loading");
+    try {
+      await subscribeEmail(email);
+      setStatus("success");
+      setEmail("");
+    } catch {
+      setStatus("error");
+    }
+  };
 
   const ea = t.earlyAccess;
   const n = t.newsletter;
@@ -16,6 +42,10 @@ export default function EarlyAccessButton() {
     const updateButtonPosition = () => {
       const heroThreshold = window.innerHeight * 0.35;
       setIsHeroOffset(window.scrollY <= heroThreshold);
+
+      const isMobile = window.innerWidth < 1024;
+      const nearFooter = window.scrollY + window.innerHeight >= document.body.scrollHeight - 300;
+      setHideOnMobile(isMobile && nearFooter);
     };
     updateButtonPosition();
     window.addEventListener("scroll", updateButtonPosition, { passive: true });
@@ -39,13 +69,14 @@ export default function EarlyAccessButton() {
     <>
       <motion.button
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0, bottom: isHeroOffset ? 84 : 24 }}
+        animate={{ opacity: hideOnMobile ? 0 : 1, y: hideOnMobile ? 20 : 0, bottom: isHeroOffset ? 84 : 24 }}
         transition={{
-          opacity: { duration: 0.8, delay: 0.9 },
-          y: { duration: 0.8, delay: 0.9 },
+          opacity: { duration: 0.3 },
+          y: { duration: 0.3 },
           bottom: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
         }}
         onClick={() => setOpen(true)}
+        style={{ pointerEvents: hideOnMobile ? "none" : "auto" }}
         className="fixed left-1/2 z-50 w-[calc(100vw-2rem)] max-w-max -translate-x-1/2 bg-[#181818] px-6 py-4 text-center text-[11px] tracking-[0.15em] text-white uppercase transition-colors hover:bg-[#333] sm:w-auto sm:max-w-[calc(100vw-3rem)]"
       >
         {ea.button}
@@ -96,16 +127,31 @@ export default function EarlyAccessButton() {
                     {ea.description}
                   </p>
 
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <input
-                      type="email"
-                      placeholder={ea.emailPlaceholder}
-                      className="flex-1 bg-transparent border border-[#C8C8C8] px-4 py-3 text-[13px] text-[#181818] placeholder:text-[#999] focus:outline-none focus:border-[#181818] transition-colors"
-                    />
-                    <button className="bg-[#181818] text-white px-6 py-3 text-[11px] tracking-[0.1em] uppercase hover:bg-[#333] transition-colors">
-                      {ea.subscribe}
-                    </button>
-                  </div>
+                  {status === "success" ? (
+                    <p className="text-[13px] text-[#181818] py-3">Inscription confirmée, merci !</p>
+                  ) : (
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+                        placeholder={ea.emailPlaceholder}
+                        className="flex-1 bg-transparent border border-[#C8C8C8] px-4 py-3 text-[13px] text-[#181818] placeholder:text-[#999] focus:outline-none focus:border-[#181818] transition-colors"
+                      />
+                      <button
+                        onClick={handleSubmit}
+                        disabled={status === "loading"}
+                        className="bg-[#181818] text-white px-6 py-3 text-[11px] tracking-[0.1em] uppercase hover:bg-[#333] transition-colors disabled:opacity-50"
+                      >
+                        {status === "loading" ? "..." : ea.subscribe}
+                      </button>
+                    </div>
+                  )}
+
+                  {status === "error" && (
+                    <p className="text-[10px] text-red-500 mt-2">Une erreur est survenue, réessayez.</p>
+                  )}
 
                   <p className="text-[10px] text-[#999] mt-3">{ea.consent}</p>
                 </div>
