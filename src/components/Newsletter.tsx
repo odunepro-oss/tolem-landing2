@@ -5,14 +5,12 @@ import { useRef, useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 
 async function subscribeEmail(email: string): Promise<void> {
-  const url = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL;
-  if (!url) throw new Error("Webhook URL not configured");
-  await fetch(url, {
+  const res = await fetch("/api/subscribe", {
     method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "text/plain" },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email }),
   });
+  if (!res.ok) throw new Error("Failed");
 }
 
 export default function Newsletter() {
