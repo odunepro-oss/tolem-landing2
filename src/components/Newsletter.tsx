@@ -7,12 +7,12 @@ import { useLanguage } from "@/lib/LanguageContext";
 async function subscribeEmail(email: string): Promise<void> {
   const url = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL;
   if (!url) throw new Error("Webhook URL not configured");
-  const res = await fetch(url, {
+  await fetch(url, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain" },
     body: JSON.stringify({ email }),
   });
-  if (!res.ok) throw new Error("Request failed");
 }
 
 export default function Newsletter() {
