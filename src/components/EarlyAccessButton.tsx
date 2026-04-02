@@ -8,6 +8,7 @@ export default function EarlyAccessButton() {
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
   const [isHeroOffset, setIsHeroOffset] = useState(true);
+  const [hideOnMobile, setHideOnMobile] = useState(false);
 
   const ea = t.earlyAccess;
   const n = t.newsletter;
@@ -16,6 +17,10 @@ export default function EarlyAccessButton() {
     const updateButtonPosition = () => {
       const heroThreshold = window.innerHeight * 0.35;
       setIsHeroOffset(window.scrollY <= heroThreshold);
+
+      const isMobile = window.innerWidth < 1024;
+      const nearFooter = window.scrollY + window.innerHeight >= document.body.scrollHeight - 300;
+      setHideOnMobile(isMobile && nearFooter);
     };
     updateButtonPosition();
     window.addEventListener("scroll", updateButtonPosition, { passive: true });
@@ -39,13 +44,14 @@ export default function EarlyAccessButton() {
     <>
       <motion.button
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0, bottom: isHeroOffset ? 84 : 24 }}
+        animate={{ opacity: hideOnMobile ? 0 : 1, y: hideOnMobile ? 20 : 0, bottom: isHeroOffset ? 84 : 24 }}
         transition={{
-          opacity: { duration: 0.8, delay: 0.9 },
-          y: { duration: 0.8, delay: 0.9 },
+          opacity: { duration: 0.3 },
+          y: { duration: 0.3 },
           bottom: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
         }}
         onClick={() => setOpen(true)}
+        style={{ pointerEvents: hideOnMobile ? "none" : "auto" }}
         className="fixed left-1/2 z-50 w-[calc(100vw-2rem)] max-w-max -translate-x-1/2 bg-[#181818] px-6 py-4 text-center text-[11px] tracking-[0.15em] text-white uppercase transition-colors hover:bg-[#333] sm:w-auto sm:max-w-[calc(100vw-3rem)]"
       >
         {ea.button}
