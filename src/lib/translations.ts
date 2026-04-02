@@ -142,6 +142,17 @@ export const translations = {
       subscribe: "S'inscrire",
       consent: "En vous inscrivant, vous acceptez de recevoir nos communications.",
     },
+    // Footer
+    footer: {
+      tagline: "Nous ne cherchons pas la perfection. Nous l'exigeons.",
+      collectionTitle: "Collection",
+      maisonTitle: "La Maison",
+      serviceTitle: "Service",
+      collection: ["Manifeste", "Savoir-faire", "Ressources"],
+      maison: ["Pourquoi TOLEM", "Notre promesse", "FAQ"],
+      service: ["Accès prioritaire", "Kickstarter", "Contact"],
+      copyright: "Horlogerie Française",
+    },
   },
   en: {
     // Nav
@@ -285,6 +296,17 @@ export const translations = {
       emailPlaceholder: "Your email",
       subscribe: "Sign up",
       consent: "By signing up, you agree to receive our communications.",
+    },
+    // Footer
+    footer: {
+      tagline: "We don't seek perfection. We demand it.",
+      collectionTitle: "Collection",
+      maisonTitle: "The House",
+      serviceTitle: "Service",
+      collection: ["Manifesto", "Craftsmanship", "Resources"],
+      maison: ["Why TOLEM", "Our Promise", "FAQ"],
+      service: ["Priority Access", "Kickstarter", "Contact"],
+      copyright: "French Watchmaking",
     },
   },
 } as const;

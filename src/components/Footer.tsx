@@ -3,26 +3,17 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import DecryptText from "./DecryptText";
+import { useLanguage } from "@/lib/LanguageContext";
 
-const footerLinks = {
-  collection: [
-    { label: "Manifeste", href: "#manifeste" },
-    { label: "Savoir-faire", href: "#savoirfaire" },
-    { label: "Ressources", href: "#ressources" },
-  ],
-  maison: [
-    { label: "Pourquoi TOLEM", href: "#manifeste" },
-    { label: "Notre promesse", href: "#newsletter" },
-    { label: "FAQ", href: "#faq" },
-  ],
-  service: [
-    { label: "Accès prioritaire", href: "#newsletter" },
-    { label: "Kickstarter", href: "#newsletter" },
-    { label: "Contact", href: "mailto:maxime@tolemwatch.com" },
-  ],
+const footerHrefs = {
+  collection: ["#manifeste", "#savoirfaire", "#ressources"],
+  maison: ["#manifeste", "#newsletter", "#faq"],
+  service: ["#newsletter", "#newsletter", "mailto:maxime@tolemwatch.com"],
 };
 
 export default function Footer() {
+  const { t } = useLanguage();
+  const f = t.footer;
   const containerRef = useRef<HTMLElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-50px" });
 
@@ -45,7 +36,7 @@ export default function Footer() {
             <h2 className="font-display text-[48px] lg:text-[64px] text-white leading-[0.9] mb-6">
               <DecryptText text="Tolem" delay={100} speed={50} />
             </h2>
-            <p className="text-[13px] text-[#666] leading-[1.8] max-w-[300px]">Nous ne cherchons pas la perfection. Nous l'exigeons.</p>
+            <p className="text-[13px] text-[#666] leading-[1.8] max-w-[300px]">{f.tagline}</p>
           </motion.div>
 
           {/* Links */}
@@ -55,11 +46,11 @@ export default function Footer() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h3 className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">Collection</h3>
+              <h3 className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">{f.collectionTitle}</h3>
               <ul className="space-y-3">
-                {footerLinks.collection.map((link, i) => (
-                  <li key={link.label}>
-                    <a href={link.href} className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{link.label}</a>
+                {f.collection.map((label, i) => (
+                  <li key={label}>
+                    <a href={footerHrefs.collection[i]} className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{label}</a>
                   </li>
                 ))}
               </ul>
@@ -70,11 +61,11 @@ export default function Footer() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.15 }}
             >
-              <h3 className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">La Maison</h3>
+              <h3 className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">{f.maisonTitle}</h3>
               <ul className="space-y-3">
-                {footerLinks.maison.map((link, i) => (
-                  <li key={link.label}>
-                    <a href={link.href} className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{link.label}</a>
+                {f.maison.map((label, i) => (
+                  <li key={label}>
+                    <a href={footerHrefs.maison[i]} className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{label}</a>
                   </li>
                 ))}
               </ul>
@@ -85,11 +76,11 @@ export default function Footer() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h3 className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">Service</h3>
+              <h3 className="text-[11px] tracking-[0.15em] text-[#888] uppercase mb-6">{f.serviceTitle}</h3>
               <ul className="space-y-3">
-                {footerLinks.service.map((link) => (
-                  <li key={link.label}>
-                    <a href={link.href} className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{link.label}</a>
+                {f.service.map((label, i) => (
+                  <li key={label}>
+                    <a href={footerHrefs.service[i]} className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{label}</a>
                   </li>
                 ))}
               </ul>
@@ -107,7 +98,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-6 lg:gap-10">
             <span className="text-[11px] tracking-[0.1em] text-[#444]">© 2026 TOLEM</span>
             <span className="text-[11px] tracking-[0.1em] text-[#444]">Paris, France</span>
-            <span className="text-[11px] tracking-[0.1em] text-[#444]">Horlogerie Française</span>
+            <span className="text-[11px] tracking-[0.1em] text-[#444]">{f.copyright}</span>
           </div>
 
           <div className="hidden lg:flex items-center gap-8">
@@ -126,8 +117,7 @@ export default function Footer() {
 
         {/* Giant Watermark */}
         <div
-          className="absolute left-0 right-0 overflow-hidden pointer-events-none px-6 lg:px-10"
-          style={{ bottom: '-20px' }}
+          className="absolute left-0 right-0 overflow-hidden pointer-events-none px-6 lg:px-10 bottom-0 lg:-bottom-5"
         >
           <img
             src="/tolem-wordmark.svg"
