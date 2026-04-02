@@ -18,7 +18,7 @@ const footerLinks = {
   service: [
     { label: "Accès prioritaire", href: "#newsletter" },
     { label: "Kickstarter", href: "#newsletter" },
-    { label: "Contact", href: "mailto:contact@tolem.fr" },
+    { label: "Contact", href: "mailto:maxime@tolemwatch.com" },
   ],
 };
 
@@ -106,11 +106,11 @@ export default function Footer() {
         >
           <div className="flex flex-wrap items-center gap-6 lg:gap-10">
             <span className="text-[11px] tracking-[0.1em] text-[#444]">© 2026 TOLEM</span>
-            <span className="text-[11px] tracking-[0.1em] text-[#444]">Besançon, France</span>
+            <span className="text-[11px] tracking-[0.1em] text-[#444]">Paris, France</span>
             <span className="text-[11px] tracking-[0.1em] text-[#444]">Horlogerie Française</span>
           </div>
 
-          <div className="flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             <span className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer">Instagram</span>
             <a
               href="https://www.linkedin.com/company/tolemwatches/"
