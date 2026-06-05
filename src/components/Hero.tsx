@@ -8,7 +8,7 @@ export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative h-screen w-full bg-[#F5F5F5] overflow-hidden">
+    <section className="relative h-screen w-full bg-white overflow-hidden">
       {/* H1 - Centered, slightly towards top */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -51,7 +51,7 @@ export default function Hero() {
       {/* Image - Desktop: full cover, Mobile: centered */}
       <div className="absolute inset-x-0 top-[59%] -translate-y-1/2 lg:inset-x-0 lg:bottom-0 lg:top-[-3%] lg:translate-y-0">
         <img
-          src="/montre2.png"
+          src="/header.webp"
           alt="TOLEM Watch"
           className="w-full h-auto lg:h-full object-cover object-center"
         />

@@ -13,7 +13,7 @@ export default function Savoirfaire() {
     <section
       id="savoirfaire"
       ref={containerRef}
-      className="relative min-h-screen bg-[#F5F5F5]"
+      className="relative min-h-screen bg-white"
     >
       <div className="mx-auto flex min-h-screen w-full max-w-[1600px] flex-col px-6 py-12 sm:px-8 lg:px-10 lg:py-14">
         <div className="space-y-8 lg:space-y-10">

@@ -115,7 +115,7 @@ export default function EarlyAccessButton() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="early-access-title"
-              className="fixed bottom-0 left-0 right-0 z-[70] bg-[#F5F5F5] max-h-[90vh] overflow-y-auto lg:bottom-auto lg:top-1/2 lg:left-1/2 lg:w-full lg:max-w-[800px] lg:-translate-x-1/2 lg:-translate-y-1/2"
+              className="fixed bottom-0 left-0 right-0 z-[70] bg-white max-h-[90vh] overflow-y-auto lg:bottom-auto lg:top-1/2 lg:left-1/2 lg:w-full lg:max-w-[800px] lg:-translate-x-1/2 lg:-translate-y-1/2"
             >
               <button
                 ref={closeButtonRef}

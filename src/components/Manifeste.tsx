@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 
 const models = [
-  { id: "TLM-01", year: "2024", name: "Origine", image: "/DSC06642.webp" },
+  { id: "TLM-01", year: "2024", name: "Origine", image: "/DSC06631.webp" },
   { id: "TLM-02", year: "2025", name: "Évolution", image: "/DSC06372.webp" },
 ];
 
@@ -48,7 +48,7 @@ export default function Manifeste() {
     <section
       id="manifeste"
       ref={containerRef}
-      className="relative bg-[#F5F5F5]"
+      className="relative bg-white"
       style={{ height: "450vh" }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">

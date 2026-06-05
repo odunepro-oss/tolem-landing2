@@ -82,7 +82,7 @@ export default function Navigation() {
         animate={{ y: hidden && !mobileMenuOpen ? -100 : 0, opacity: 1 }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled || mobileMenuOpen ? "bg-[#F5F5F5]/95 backdrop-blur-md py-3" : "py-5"
+          scrolled || mobileMenuOpen ? "bg-white/95 backdrop-blur-md py-3" : "py-5"
         }`}
       >
         <div className="relative max-w-[1600px] mx-auto px-6 md:px-10 flex items-center justify-between">
@@ -193,7 +193,7 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#F5F5F5] lg:hidden"
+            className="fixed inset-0 z-40 bg-white lg:hidden"
           >
             <div className="flex flex-col items-center justify-center h-full gap-8">
               {navItems.map((item, i) => (

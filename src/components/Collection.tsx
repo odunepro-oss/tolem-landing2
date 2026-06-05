@@ -33,7 +33,7 @@ export default function Collection() {
   return (
     <section
       ref={containerRef}
-      className="relative bg-[#F5F5F5] px-6 py-16 sm:px-8 lg:px-10 lg:py-20"
+      className="relative bg-white px-6 py-16 sm:px-8 lg:px-10 lg:py-20"
     >
       <div className="max-w-[1400px] mx-auto">
         {/* Section Title */}
@@ -108,7 +108,7 @@ export default function Collection() {
           </div>
 
           {/* Right - Image Placeholder */}
-          <div className="bg-[#F0F0F0] min-h-[300px] lg:min-h-[450px] flex items-center justify-center">
+          <div className="bg-white min-h-[300px] lg:min-h-[450px] flex items-center justify-center">
             <span className="text-[11px] text-[#888] tracking-[0.12em] uppercase">{`Image ${activeModel.id}`}</span>
           </div>
         </motion.div>

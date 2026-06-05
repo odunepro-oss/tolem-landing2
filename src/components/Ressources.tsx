@@ -26,7 +26,7 @@ export default function Ressources() {
     <section
       id="ressources"
       ref={containerRef}
-      className="relative bg-[#F5F5F5] py-16 lg:py-20"
+      className="relative bg-white py-16 lg:py-20"
     >
       <div className="max-w-[1400px] mx-auto">
         <motion.h2

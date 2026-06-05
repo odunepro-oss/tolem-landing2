@@ -68,7 +68,7 @@ export default function Carousel({ images, embedded = false }: CarouselProps) {
       className={
         embedded
           ? "relative mb-16 lg:mb-20 overflow-hidden"
-          : "relative bg-[#F5F5F5] pb-16 lg:pb-24 overflow-hidden"
+          : "relative bg-white pb-16 lg:pb-24 overflow-hidden"
       }
     >
       <div

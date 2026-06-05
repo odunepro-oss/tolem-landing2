@@ -61,7 +61,7 @@ export default function Decouvrir() {
     <section
       id="collection"
       ref={containerRef}
-      className="relative bg-[#F5F5F5] px-6 py-16 sm:px-8 lg:px-10 lg:py-20"
+      className="relative bg-white px-6 py-16 sm:px-8 lg:px-10 lg:py-20"
     >
       <div className="max-w-[1400px] mx-auto">
         <motion.h2

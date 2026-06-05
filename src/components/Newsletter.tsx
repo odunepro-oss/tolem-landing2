@@ -39,7 +39,7 @@ export default function Newsletter() {
     <section
       id="newsletter"
       ref={containerRef}
-      className="relative bg-[#F5F5F5] px-6 py-20 sm:px-8 lg:px-10 lg:py-[120px]"
+      className="relative bg-white px-6 py-20 sm:px-8 lg:px-10 lg:py-[120px]"
     >
       <div className="max-w-[1400px] mx-auto">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">

@@ -22,9 +22,8 @@ export default function ModelCards() {
   return (
     <div ref={ref} className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4">
       {models.map((model, index) => (
-        <motion.a
+        <motion.div
           key={model.name}
-          href="#"
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 * index, ease: [0.16, 1, 0.3, 1] }}
@@ -48,7 +47,7 @@ export default function ModelCards() {
               {model.name}
             </span>
           </div>
-        </motion.a>
+        </motion.div>
       ))}
     </div>
   );
