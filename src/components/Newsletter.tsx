@@ -85,17 +85,24 @@ export default function Newsletter() {
                 <p className="text-[13px] text-[#181818] py-4">Inscription confirmée, merci !</p>
               ) : (
                 <>
+                  <label htmlFor="newsletter-email" className="sr-only">
+                    {n.emailPlaceholder || "Adresse e-mail"}
+                  </label>
                   <input
+                    id="newsletter-email"
                     type="email"
+                    autoComplete="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
                     placeholder={n.emailPlaceholder}
+                    aria-label={n.emailPlaceholder || "Adresse e-mail"}
                     className="flex-1 bg-transparent border border-[#C8C8C8] px-5 py-4 text-[14px] text-[#181818] placeholder:text-[#999] focus:outline-none focus:border-[#181818] transition-colors"
                   />
                   <button
                     onClick={handleSubmit}
                     disabled={status === "loading"}
+                    aria-busy={status === "loading"}
                     className="bg-[#181818] text-white px-8 py-4 text-[12px] tracking-[0.1em] uppercase hover:bg-[#333] transition-colors disabled:opacity-50"
                   >
                     {status === "loading" ? "..." : n.subscribe}

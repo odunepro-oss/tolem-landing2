@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 
 async function subscribeEmail(email: string): Promise<void> {
@@ -20,6 +20,7 @@ export default function EarlyAccessButton() {
   const [hideOnMobile, setHideOnMobile] = useState(false);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleSubmit = async () => {
     if (!email || status === "loading") return;
@@ -63,6 +64,13 @@ export default function EarlyAccessButton() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    // Move focus into the dialog when it opens.
+    const id = requestAnimationFrame(() => closeButtonRef.current?.focus());
+    return () => cancelAnimationFrame(id);
+  }, [open]);
+
   return (
     <>
       <motion.button
@@ -103,10 +111,12 @@ export default function EarlyAccessButton() {
               className="fixed bottom-0 left-0 right-0 z-[70] bg-[#F5F5F5] max-h-[90vh] overflow-y-auto lg:bottom-auto lg:top-1/2 lg:left-1/2 lg:w-full lg:max-w-[800px] lg:-translate-x-1/2 lg:-translate-y-1/2"
             >
               <button
+                ref={closeButtonRef}
                 onClick={() => setOpen(false)}
+                aria-label="Fermer"
                 className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center text-[#181818]/40 hover:text-[#181818] transition-colors text-lg"
               >
-                ×
+                <span aria-hidden="true">×</span>
               </button>
 
               <div className="grid gap-10 p-6 sm:p-8 lg:grid-cols-2 lg:gap-16 lg:p-12">
@@ -129,17 +139,24 @@ export default function EarlyAccessButton() {
                     <p className="text-[13px] text-[#181818] py-3">Inscription confirmée, merci !</p>
                   ) : (
                     <div className="flex flex-col sm:flex-row gap-3">
+                      <label htmlFor="early-access-email" className="sr-only">
+                        {ea.emailPlaceholder || "Adresse e-mail"}
+                      </label>
                       <input
+                        id="early-access-email"
                         type="email"
+                        autoComplete="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
                         placeholder={ea.emailPlaceholder}
+                        aria-label={ea.emailPlaceholder || "Adresse e-mail"}
                         className="flex-1 bg-transparent border border-[#C8C8C8] px-4 py-3 text-[13px] text-[#181818] placeholder:text-[#999] focus:outline-none focus:border-[#181818] transition-colors"
                       />
                       <button
                         onClick={handleSubmit}
                         disabled={status === "loading"}
+                        aria-busy={status === "loading"}
                         className="bg-[#181818] text-white px-6 py-3 text-[11px] tracking-[0.1em] uppercase hover:bg-[#333] transition-colors disabled:opacity-50"
                       >
                         {status === "loading" ? "..." : ea.subscribe}

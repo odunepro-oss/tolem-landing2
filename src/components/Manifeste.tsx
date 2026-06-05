@@ -5,8 +5,8 @@ import { useRef, useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 
 const models = [
-  { id: "TLM-01", year: "2024", name: "Origine" },
-  { id: "TLM-02", year: "2025", name: "Évolution" },
+  { id: "TLM-01", year: "2024", name: "Origine", image: "/DSC06642.webp" },
+  { id: "TLM-02", year: "2025", name: "Évolution", image: "/DSC06372.webp" },
 ];
 
 export default function Manifeste() {
@@ -67,14 +67,11 @@ export default function Manifeste() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="absolute inset-0 flex items-center justify-center"
               >
-                <div className="text-center">
-                  <span className="text-[11px] text-[#888]/60 tracking-[0.12em] uppercase block mb-2">
-                    Image {models[activeYear]?.id}
-                  </span>
-                  <span className="text-[11px] text-[#888]/40 tracking-[0.1em]">
-                    {models[activeYear]?.name}
-                  </span>
-                </div>
+                <img
+                  src={models[activeYear]?.image}
+                  alt={`${models[activeYear]?.id} — ${models[activeYear]?.name}`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </motion.div>
             </AnimatePresence>
             <motion.div

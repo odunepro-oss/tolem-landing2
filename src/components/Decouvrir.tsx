@@ -3,6 +3,18 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
+import Carousel from "@/components/Carousel";
+
+const carouselImages = [
+  { src: "/DSC08274-3.webp", alt: "TOLEM — Profil du boîtier et couronne crantée" },
+  { src: "/DSC08431.webp", alt: "TOLEM — Les trois cadrans de la collection" },
+  { src: "/DSC08550.webp", alt: "TOLEM — Cadran noir et bracelet cuir" },
+  { src: "/DSC08592.webp", alt: "TOLEM — Vue de trois quarts, cadran noir" },
+  { src: "/DSC08583.webp", alt: "TOLEM — Boîtier acier et bracelet caoutchouc" },
+  { src: "/DSC08182.webp", alt: "TOLEM — Dos en cuir véritable gravé" },
+  { src: "/DSC01062.webp", alt: "TOLEM — Trio de montres en perspective" },
+  { src: "/DSC08341.webp", alt: "TOLEM — Cadran ambré en gros plan" },
+];
 
 export default function Decouvrir() {
   const { t } = useLanguage();
@@ -50,10 +62,12 @@ export default function Decouvrir() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="section-title text-[#181818] mb-16"
+          className="section-title text-[#181818] mb-12"
         >
           {t.decouvrir.title}
         </motion.h2>
+
+        <Carousel images={carouselImages} embedded />
 
         <div>
           {items.map((item, index) => (

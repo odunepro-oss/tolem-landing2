@@ -9,9 +9,17 @@ export default function Ressources() {
   const containerRef = useRef<HTMLElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
+  const resourceImages = [
+    "/DSC06659-Modifier-2.webp",
+    "/DSC06500.webp",
+    "/DSC06562.webp",
+    "/DSC07073.webp",
+  ];
+
   const resources = t.ressources.items.map((item, i) => ({
     ...item,
     label: `0${i + 1}`,
+    image: resourceImages[i],
   }));
 
   return (
@@ -38,12 +46,14 @@ export default function Ressources() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="group cursor-pointer"
+              className="group"
             >
-              <div className="aspect-[4/3] bg-[#E8E8E8] flex items-center justify-center">
-                <span className="font-mono text-[10px] text-[#888] tracking-[0.15em] group-hover:text-[#181818] transition-colors">
-                  {item.label}
-                </span>
+              <div className="aspect-[4/3] bg-[#E8E8E8] overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
               <div className="pt-4">
                 <h3 className="text-[14px] text-[#181818] mb-1">{item.title}</h3>
@@ -61,12 +71,14 @@ export default function Ressources() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="group block cursor-pointer"
+              className="group block"
             >
-              <div className="aspect-[3/4] bg-[#E8E8E8] flex items-center justify-center">
-                <span className="font-mono text-[10px] text-[#888] tracking-[0.15em] group-hover:text-[#181818] transition-colors">
-                  {item.label}
-                </span>
+              <div className="aspect-[3/4] bg-[#E8E8E8] overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
               <div className="pt-5">
                 <h3 className="text-[15px] text-[#181818] mb-1">{item.title}</h3>

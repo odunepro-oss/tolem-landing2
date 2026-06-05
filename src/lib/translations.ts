@@ -41,7 +41,7 @@ export const translations = {
     },
     // Decouvrir
     decouvrir: {
-      title: "Découvrir",
+      title: "Découvrir nos modèles",
       specs: {
         title: "Spécifications",
         boitier: { label: "Boîtier", value: "Acier inoxydable 316L" },
@@ -196,7 +196,7 @@ export const translations = {
     },
     // Decouvrir
     decouvrir: {
-      title: "Discover",
+      title: "Discover our models",
       specs: {
         title: "Specifications",
         boitier: { label: "Case", value: "316L Stainless Steel" },
