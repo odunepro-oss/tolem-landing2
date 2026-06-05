@@ -64,6 +64,13 @@ export default function EarlyAccessButton() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [open]);
 
+  // Allow other components (e.g. footer "Newsletter" links) to open this modal.
+  useEffect(() => {
+    const openModal = () => setOpen(true);
+    window.addEventListener("open-early-access", openModal);
+    return () => window.removeEventListener("open-early-access", openModal);
+  }, []);
+
   useEffect(() => {
     if (!open) return;
     // Move focus into the dialog when it opens.

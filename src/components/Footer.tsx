@@ -7,8 +7,8 @@ import { useLanguage } from "@/lib/LanguageContext";
 
 const footerHrefs = {
   collection: ["#manifeste", "#savoirfaire", "#ressources"],
-  maison: ["#manifeste", "#newsletter", "#faq"],
-  service: ["#newsletter", "#newsletter", "mailto:maxime@tolemwatch.com"],
+  maison: ["#collection", "#newsletter", "#faq"],
+  service: ["early-access", "early-access", "mailto:maxime@tolemwatch.com"],
 };
 
 export default function Footer() {
@@ -21,9 +21,9 @@ export default function Footer() {
     <footer
       ref={containerRef}
       className="relative bg-[#0A0A0A] overflow-hidden"
-      style={{ padding: "80px 24px 220px" }}
+      style={{ padding: "80px 24px 48px" }}
     >
-      <div className="max-w-[1400px] mx-auto">
+      <div className="relative z-10 max-w-[1400px] mx-auto">
         {/* Top Section */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-[#222]">
           {/* Logo & Tagline */}
@@ -80,7 +80,17 @@ export default function Footer() {
               <ul className="space-y-3">
                 {f.service.map((label, i) => (
                   <li key={label}>
-                    <a href={footerHrefs.service[i]} className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{label}</a>
+                    {footerHrefs.service[i] === "early-access" ? (
+                      <button
+                        type="button"
+                        onClick={() => window.dispatchEvent(new Event("open-early-access"))}
+                        className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer"
+                      >
+                        {label}
+                      </button>
+                    ) : (
+                      <a href={footerHrefs.service[i]} className="text-[13px] text-[#555] hover:text-white transition-colors cursor-pointer">{label}</a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -102,7 +112,14 @@ export default function Footer() {
           </div>
 
           <div className="hidden lg:flex items-center gap-8">
-            <span className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer">Instagram</span>
+            <a
+              href="https://www.instagram.com/tolemwatches?igsh=MWd2d3BranV0aHIyNA%3D%3D"
+              target="_blank"
+              rel="noreferrer"
+              className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors"
+            >
+              Instagram
+            </a>
             <a
               href="https://www.linkedin.com/company/tolemwatches/"
               target="_blank"
@@ -111,18 +128,22 @@ export default function Footer() {
             >
               LinkedIn
             </a>
-            <span className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer">Newsletter</span>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("open-early-access"))}
+              className="text-[11px] tracking-[0.1em] text-[#555] hover:text-white transition-colors cursor-pointer"
+            >
+              Newsletter
+            </button>
           </div>
         </motion.div>
 
-        {/* Giant Watermark */}
-        <div
-          className="absolute left-0 right-0 overflow-hidden pointer-events-none px-6 lg:px-10 bottom-0 lg:-bottom-5"
-        >
+        {/* Giant Watermark — in flow, can never overlap the content above */}
+        <div className="mt-16 overflow-hidden pointer-events-none" aria-hidden="true">
           <img
             src="/tolem-wordmark.svg"
-            alt="TOLEM"
-            className="w-full h-auto invert"
+            alt=""
+            className="w-full h-auto invert block"
           />
         </div>
       </div>

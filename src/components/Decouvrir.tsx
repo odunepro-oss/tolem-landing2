@@ -4,16 +4,20 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 import Carousel from "@/components/Carousel";
+import ModelCards from "@/components/ModelCards";
 
 const carouselImages = [
   { src: "/DSC08274-3.webp", alt: "TOLEM — Profil du boîtier et couronne crantée" },
-  { src: "/DSC08431.webp", alt: "TOLEM — Les trois cadrans de la collection" },
-  { src: "/DSC08550.webp", alt: "TOLEM — Cadran noir et bracelet cuir" },
-  { src: "/DSC08592.webp", alt: "TOLEM — Vue de trois quarts, cadran noir" },
-  { src: "/DSC08583.webp", alt: "TOLEM — Boîtier acier et bracelet caoutchouc" },
-  { src: "/DSC08182.webp", alt: "TOLEM — Dos en cuir véritable gravé" },
+  { src: "/DSC08162.webp", alt: "TOLEM — Montre TOLEM" },
   { src: "/DSC01062.webp", alt: "TOLEM — Trio de montres en perspective" },
+  { src: "/DSC08614.webp", alt: "TOLEM — Montre TOLEM" },
+  { src: "/DSC08327.webp", alt: "TOLEM — Cadran ambré" },
+  { src: "/DSC08592.webp", alt: "TOLEM — Vue de trois quarts, cadran noir" },
+  { src: "/DSC08695.webp", alt: "TOLEM — Montre TOLEM" },
+  { src: "/DSC08643.webp", alt: "TOLEM — Montre TOLEM" },
   { src: "/DSC08341.webp", alt: "TOLEM — Cadran ambré en gros plan" },
+  { src: "/DSC06488.webp", alt: "TOLEM — Détail du boîtier" },
+  { src: "/DSC08214.webp", alt: "TOLEM — Montre TOLEM" },
 ];
 
 export default function Decouvrir() {
@@ -25,6 +29,7 @@ export default function Decouvrir() {
   const specsList = [
     specs.boitier,
     specs.finitions,
+    specs.traitement,
     specs.verre,
     specs.dimensions,
     specs.cadrans,
@@ -54,6 +59,7 @@ export default function Decouvrir() {
 
   return (
     <section
+      id="collection"
       ref={containerRef}
       className="relative bg-[#F5F5F5] px-6 py-16 sm:px-8 lg:px-10 lg:py-20"
     >
@@ -67,9 +73,9 @@ export default function Decouvrir() {
           {t.decouvrir.title}
         </motion.h2>
 
-        <Carousel images={carouselImages} embedded />
+        <ModelCards />
 
-        <div>
+        <div className="mt-12 lg:mt-16">
           {items.map((item, index) => (
             <motion.div
               key={item.title}
@@ -100,6 +106,10 @@ export default function Decouvrir() {
               <div className="lg:col-span-3" />
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-16 lg:mt-20 border-t border-[#D8D8D8] pt-16 lg:pt-20">
+          <Carousel images={carouselImages} embedded />
         </div>
       </div>
     </section>
