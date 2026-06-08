@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 
 // Images portrait des 3 modèles. Placeholders temporaires en attendant
-// les visuels portrait définitifs (TLM-01 fond noir, TLM-02 gris, TLM-03 marron).
+// les visuels portrait définitifs (TLM-01N fond noir, TLM-01G gris, TLM-01J jaune).
 const modelImages = [
   "/model-tlm-01.webp",
   "/model-tlm-02.webp",

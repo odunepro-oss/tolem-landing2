@@ -43,15 +43,15 @@ export const translations = {
     decouvrir: {
       title: "Découvrez notre première collection",
       models: [
-        { name: "TLM-01", variant: "Fond noir" },
-        { name: "TLM-02", variant: "Fond dégradé gris clair" },
-        { name: "TLM-03", variant: "Fond dégradé marron" },
+        { name: "TLM-01N", variant: "Fond noir" },
+        { name: "TLM-01G", variant: "Fond dégradé gris clair" },
+        { name: "TLM-01J", variant: "Fond dégradé jaune" },
       ],
       specs: {
         title: "Spécifications",
         boitier: { label: "Boîtier", value: "Acier inoxydable 316L" },
         finitions: { label: "Finitions du boîtier", value: "Lunette et fond brossés circulaires, écrous et couronne polis, carrure microbillée" },
-        traitement: { label: "Traitement", value: "La carrure du TLM-01 est traitée par IPH (Ion Plating Hardened), portant la dureté de surface de 200 à 700 HV, soit une résistance aux rayures nettement supérieure à l'acier 316L brut." },
+        traitement: { label: "Traitement", value: "La lunette du TLM-01 est traitée par IPH (Ion Plating Hardened), portant la dureté de surface de 200 à 700 HV, soit une résistance aux rayures nettement supérieure à l'acier 316L brut." },
         verre: { label: "Verre", value: "Saphir" },
         dimensions: { label: "Dimensions", value: "Diamètre 41 mm (ressenti 39 mm, cornes intégrées) — Épaisseur 11,6 mm" },
         cadrans: { label: "Cadrans", value: "Noir grainé / Dégradé gris / Dégradé jaune" },
@@ -73,7 +73,7 @@ export const translations = {
     ressources: {
       title: "Ressources",
       items: [
-        { title: "Notre Vision", subtitle: "Manifeste" },
+        { title: "Notre Vision", subtitle: "La transmission" },
         { title: "L'Atelier", subtitle: "Besançon" },
         { title: "Le Mouvement", subtitle: "Miyota 82S5" },
         { title: "La Promesse", subtitle: "Kickstarter" },
@@ -204,15 +204,15 @@ export const translations = {
     decouvrir: {
       title: "Discover our first collection",
       models: [
-        { name: "TLM-01", variant: "Black dial" },
-        { name: "TLM-02", variant: "Light grey gradient dial" },
-        { name: "TLM-03", variant: "Brown gradient dial" },
+        { name: "TLM-01N", variant: "Black dial" },
+        { name: "TLM-01G", variant: "Light grey gradient dial" },
+        { name: "TLM-01J", variant: "Yellow gradient dial" },
       ],
       specs: {
         title: "Specifications",
         boitier: { label: "Case", value: "316L Stainless Steel" },
         finitions: { label: "Case finishing", value: "Circular brushed bezel and caseback, polished screws and crown, micro-blasted mid-case" },
-        traitement: { label: "Treatment", value: "The TLM-01 mid-case is treated with IPH (Ion Plating Hardened), raising surface hardness from 200 to 700 HV — significantly more scratch-resistant than raw 316L steel." },
+        traitement: { label: "Treatment", value: "The TLM-01 bezel is treated with IPH (Ion Plating Hardened), raising surface hardness from 200 to 700 HV — significantly more scratch-resistant than raw 316L steel." },
         verre: { label: "Crystal", value: "Sapphire" },
         dimensions: { label: "Dimensions", value: "41 mm diameter (wears like 39 mm, integrated lugs) — 11.6 mm thickness" },
         cadrans: { label: "Dials", value: "Grained black / Grey gradient / Yellow gradient" },
@@ -234,7 +234,7 @@ export const translations = {
     ressources: {
       title: "Resources",
       items: [
-        { title: "Our Vision", subtitle: "Manifesto" },
+        { title: "Our Vision", subtitle: "The transmission" },
         { title: "The Workshop", subtitle: "Besançon" },
         { title: "The Movement", subtitle: "Miyota 82S5" },
         { title: "The Promise", subtitle: "Kickstarter" },
