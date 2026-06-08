@@ -111,7 +111,7 @@ export default function Footer() {
             <span className="text-[11px] tracking-[0.1em] text-[#444]">{f.copyright}</span>
           </div>
 
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="flex flex-wrap items-center gap-6 lg:gap-8">
             <a
               href="https://www.instagram.com/tolemwatches?igsh=MWd2d3BranV0aHIyNA%3D%3D"
               target="_blank"

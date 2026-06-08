@@ -53,7 +53,7 @@ export default function Hero() {
         <img
           src="/header.webp"
           alt="TOLEM Watch"
-          className="w-full h-auto lg:h-full object-cover object-center"
+          className="w-full h-auto lg:h-full object-cover object-center scale-150 lg:scale-100 lg:object-[56%_center]"
         />
       </div>
     </section>
