@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
+import { trackLead } from "@/lib/fbpixel";
 
 async function subscribeEmail(email: string): Promise<void> {
   const res = await fetch("/api/subscribe", {
@@ -27,6 +28,7 @@ export default function EarlyAccessButton() {
     setStatus("loading");
     try {
       await subscribeEmail(email);
+      trackLead();
       setStatus("success");
       setEmail("");
     } catch {

@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
+import { trackLead } from "@/lib/fbpixel";
 
 async function subscribeEmail(email: string): Promise<void> {
   const res = await fetch("/api/subscribe", {
@@ -28,6 +29,7 @@ export default function Newsletter() {
     setStatus("loading");
     try {
       await subscribeEmail(email);
+      trackLead();
       setStatus("success");
       setEmail("");
     } catch {
